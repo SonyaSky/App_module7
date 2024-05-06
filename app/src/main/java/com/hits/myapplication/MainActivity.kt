@@ -1,8 +1,9 @@
 package com.hits.myapplication
 
 import android.os.Bundle
+import android.widget.Button
 import androidx.activity.ComponentActivity
-
+import android.content.Intent
 //import android.graphics.Color
 //import android.graphics.Bitmap
 //import android.graphics.drawable.BitmapDrawable
@@ -27,6 +28,15 @@ class MainActivity : ComponentActivity() {
 
         imageFilter = ImageFilters(this)
         imageFilter.setOnClickListeners()
+
+        val intent = Intent(this, RetouchingActivity::class.java)
+        startActivity(intent)
+        val retouchButton = findViewById<Button>(R.id.retouchButton)
+
+        retouchButton.setOnClickListener {
+            val intent = Intent(this,RetouchingActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 

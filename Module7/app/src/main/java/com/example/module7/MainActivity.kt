@@ -1,25 +1,23 @@
 package com.example.module7
 
 import android.app.Activity
+import android.content.ContentValues
 import android.content.Intent
-import com.example.module7.databinding.ActivityMainBinding
-import androidx.appcompat.app.AppCompatActivity
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Matrix
+import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.widget.AppCompatImageView
-import android.graphics.Bitmap
-import android.graphics.Matrix
-import android.graphics.BitmapFactory
-import android.graphics.drawable.BitmapDrawable
-import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
+
+import com.example.module7.databinding.ActivityMainBinding
 import java.io.IOException
 
-import com.google.android.material.button.MaterialButton
-
 class MainActivity : AppCompatActivity() {
-    private lateinit var pickImage: MaterialButton
-    private lateinit var selectedImage: AppCompatImageView
+
     private val changeImage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             val data = result.data
@@ -49,6 +47,13 @@ class MainActivity : AppCompatActivity() {
                 binding.selectedImage.setImageBitmap(rotatedBitmap)
             }
         }
+
+        binding.saveImage.setOnClickListener {
+            val rotatedBitmap = (binding.selectedImage.drawable as? BitmapDrawable)?.bitmap
+            rotatedBitmap?.let { bitmap ->
+                saveBitmap(bitmap)
+            }
+        }
     }
 
     private fun rotateImage(uri: Uri): Bitmap? {
@@ -65,5 +70,12 @@ class MainActivity : AppCompatActivity() {
         val matrix = Matrix()
         matrix.postRotate(angle)
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+    }
+
+    private fun saveBitmap(bitmap: Bitmap) {
+        val imageUri = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, ContentValues()) ?: return
+        contentResolver.openOutputStream(imageUri)?.use { outputStream ->
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream)
+        }
     }
 }

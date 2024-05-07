@@ -27,8 +27,16 @@ tools:context=".MainActivity">
         android:layout_height="wrap_content"
         android:layout_below="@id/pick_image"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="560dp"
+        android:layout_marginTop="550dp"
         android:text="rotate image" />
-    
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/save_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pick_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="600dp"
+        android:text="save image" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

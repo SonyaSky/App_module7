@@ -54,8 +54,7 @@ class MainActivity : AppCompatActivity() {
     private fun rotateImage(uri: Uri): Bitmap? {
         return try {
             val inputStream = contentResolver.openInputStream(uri)
-            val bitmap = BitmapFactory.decodeStream(inputStream)
-            rotateBitmap(bitmap, 90f)
+            BitmapFactory.decodeStream(inputStream)
         } catch (e: IOException) {
             e.printStackTrace()
             null

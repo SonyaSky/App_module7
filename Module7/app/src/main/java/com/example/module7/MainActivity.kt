@@ -59,6 +59,17 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        binding.scaleImage.setOnClickListener {
+            val currentBitmap = (binding.selectedImage.drawable as? BitmapDrawable)?.bitmap
+            currentBitmap?.let { bitmap ->
+                val scaleFactor = binding.scaleFactorEditText.text.toString().toFloatOrNull()
+                scaleFactor?.let {
+                    val scaledBitmap = scaleBitmap(bitmap, it)
+                    binding.selectedImage.setImageBitmap(scaledBitmap)
+                } ?: showToast("Invalid scale factor")
+            } ?: showToast("No image selected")
+        }
+
         binding.saveImage.setOnClickListener {
             val rotatedBitmap = (binding.selectedImage.drawable as? BitmapDrawable)?.bitmap
             rotatedBitmap?.let { bitmap ->
@@ -91,6 +102,16 @@ class MainActivity : AppCompatActivity() {
         val matrix = Matrix()
         matrix.postRotate(angle)
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+    }
+
+    private fun scaleBitmap(bitmap: Bitmap, scaleFactor: Float): Bitmap {
+        val width = (bitmap.width * scaleFactor).toInt()
+        val height = (bitmap.height * scaleFactor).toInt()
+        return Bitmap.createScaledBitmap(bitmap, width, height, true)
+    }
+
+    private fun resizeBitmap(bitmap: Bitmap, newWidth: Int, newHeight: Int): Bitmap {
+        return Bitmap.createScaledBitmap(bitmap, newWidth, newHeight, true)
     }
 
     private fun saveBitmap(bitmap: Bitmap) {

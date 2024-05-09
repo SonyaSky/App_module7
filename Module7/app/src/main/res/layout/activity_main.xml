@@ -40,13 +40,24 @@ tools:context=".MainActivity">
         android:layout_marginTop="550dp"
         android:text="rotate image" />
 
-    <SeekBar
-        android:id="@+id/scaleSeekBar"
-        android:layout_width="match_parent"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/scale_image"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:max="200"
-        android:progress="100" />
+        android:layout_below="@id/take_photo_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="550dp"
+        android:layout_marginStart="200dp"
+        android:text="scale image" />
+
+    <EditText
+        android:id="@+id/scaleFactorEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:hint="Scale Factor"
+        android:layout_marginTop="600dp"
+        android:layout_marginStart="200dp"
+        android:inputType="numberDecimal"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/save_image"

@@ -22,6 +22,16 @@ tools:context=".MainActivity">
         android:text="pick image" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/take_photo_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/selected_image"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="500dp"
+        android:layout_marginStart="200dp"
+        android:text="take photo" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/rotate_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -29,6 +39,14 @@ tools:context=".MainActivity">
         android:layout_centerHorizontal="true"
         android:layout_marginTop="550dp"
         android:text="rotate image" />
+
+    <SeekBar
+        android:id="@+id/scaleSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:max="200"
+        android:progress="100" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/save_image"

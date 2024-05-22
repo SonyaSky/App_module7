@@ -13,41 +13,103 @@
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 
-        <Button
+        <ImageButton
             android:id="@+id/invert"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:text="Invertion" />
+            android:background="#00FFFFFF"
+            android:text="@string/inversionButton" />
 
-        <Button
+        <ImageButton
             android:id="@+id/gray"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:minWidth="48dp"
+            android:background="#00FFFFFF"
             android:text="Grayscale" />
 
-        <Button
+        <ImageButton
             android:id="@+id/bnw"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
             android:text="Black White" />
 
-        <Button
-            android:id="@+id/blue"
-            android:layout_width="wrap_content"
+        <ImageButton
+            android:id="@+id/dark"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:text="Dark" />
+
+        <ImageButton
+            android:id="@+id/light"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:text="light" />
+
+        <ImageButton
+            android:id="@+id/sepia"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            android:text="Sepia" />
+
+        <ImageButton
+            android:id="@+id/yellow"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:text="Yellow" />
+
+        <ImageButton
+            android:id="@+id/sage"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:text="Sage green" />
+
+        <ImageButton
+            android:id="@+id/orange"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:text="Orange" />
+
+        <ImageButton
+            android:id="@+id/pink"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:text="Pink" />
+
+        <ImageButton
+            android:id="@+id/purple"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
+            android:text="Purple" />
+
+        <ImageButton
+            android:id="@+id/blue"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
             android:text="Blue" />
 
-        <Button
+        <ImageButton
             android:id="@+id/red"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
             android:text="Red" />
 
-        <Button
+        <ImageButton
             android:id="@+id/green"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
+            android:background="#00FFFFFF"
             android:text="Green" />
     </LinearLayout>
 

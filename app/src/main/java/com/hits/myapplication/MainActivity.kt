@@ -1,44 +1,59 @@
 package com.hits.myapplication
 
-import android.os.Bundle
-import android.widget.Button
-import androidx.activity.ComponentActivity
+
 import android.content.Intent
-//import android.graphics.Color
-//import android.graphics.Bitmap
-//import android.graphics.drawable.BitmapDrawable
-//import androidx.activity.compose.setContent
-//import androidx.compose.foundation.layout.fillMaxSize
-//import androidx.compose.material3.MaterialTheme
-//import androidx.compose.material3.Surface
-//import androidx.compose.ui.Modifier
-//import android.widget.Button
-//import android.widget.ImageView
-//import com.hits.myapplication.ui.theme.MyApplicationTheme
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.appcompat.widget.AppCompatImageView
+import android.graphics.drawable.BitmapDrawable
+import android.widget.Button
+import android.widget.ImageView
+import com.bumptech.glide.Glide
+//import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : ComponentActivity() {
 
-    private lateinit var imageFilter: ImageFilters
+    private lateinit var imageFilters: ImageFilters
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+//        val gifImageView = findViewById<ImageView>(R.id.gifImageView)
+//
+//        Glide.with(this)
+//            .asGif()
+//            .load(R.drawable.gem_gif) // Replace with your GIF resource
+//            .into(gifImageView)
 
-        imageFilter = ImageFilters(this)
-        imageFilter.setOnClickListeners()
+        val imageView = findViewById<AppCompatImageView>(R.id.imageView)
+        val originalImage = (imageView.drawable as BitmapDrawable).bitmap
+        val imageFilters = ImageFilters(this, originalImage)
+        imageFilters.setOnClickListeners(imageView)
 
-        val intent = Intent(this, RetouchingActivity::class.java)
-        startActivity(intent)
-        val retouchButton = findViewById<Button>(R.id.retouchButton)
+        val nextPage = findViewById<Button>(R.id.retouchButton)
+        val nextPage1 = findViewById<Button>(R.id.maskButton)
 
-        retouchButton.setOnClickListener {
-            val intent = Intent(this,RetouchingActivity::class.java)
+        nextPage.setOnClickListener {
+            val intent = Intent(this, RetouchActivity::class.java)
             startActivity(intent)
         }
 
+        nextPage1.setOnClickListener {
+            val intent1 = Intent(this, MaskingActivity::class.java)
+            startActivity(intent1)
+        }
+
+//        val brushSizeSeekBar = findViewById<CustomSeekBar>(R.id.brushSizeSeekBar)
+//        val brushSizeTextView = findViewById<TextView>(R.id.brushSizeTextView)
+//
+//        brushSizeSeekBar.setProgressTextView(brushSizeTextView)
+//
+//        val brushRatioSeekBar = findViewById<CustomSeekBar>(R.id.brushRatioSeekBar)
+//        val brushRatioTextView = findViewById<TextView>(R.id.brushRatioTextView)
+//
+//        brushRatioSeekBar.setProgressTextView(brushRatioTextView)
+
     }
-
 }
-

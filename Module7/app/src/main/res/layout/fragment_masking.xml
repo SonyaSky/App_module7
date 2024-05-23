@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_rotate"
+    android:orientation="vertical">
+
+
+    <com.google.android.material.slider.RangeSlider
+        android:id="@+id/effect_seek_bar"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:valueFrom="0"
+        android:valueTo="400"
+        android:stepSize="1"
+        app:layout_anchorGravity="center" />
+
+    <com.google.android.material.slider.RangeSlider
+        android:id="@+id/radius_seek_Bar"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:valueFrom="2"
+        android:valueTo="50"
+        android:stepSize="1"
+        app:layout_anchorGravity="center" />
+
+    <com.google.android.material.slider.RangeSlider
+        android:id="@+id/threshold_seek_bar"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:valueFrom="0"
+        android:valueTo="255"
+        android:stepSize="1"
+        app:layout_anchorGravity="center" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/rotate_image"
+        style="@style/ButtonStyle"
+        android:layout_centerHorizontal="true"
+        android:text="rotate 90 degrees" />
+
+</LinearLayout>

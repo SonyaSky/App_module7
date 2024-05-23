@@ -1,3 +1,34 @@
 <resources>
-    <string name="app_name">Module7</string>
+    <string name="app_name">Gemstone</string>
+
+    <string name="load">Load image</string>
+    <string name="take_photo">Take photo</string>
+    <string name="save">Save image</string>
+
+    <string name="rotate">Rotate</string>
+    <string name="filter">Color filters</string>
+    <string name="scale">Scale</string>
+    <string name="scale_hint">Scale Factor</string>
+    <string name="face">Face detection</string>
+    <string name="vector">Vector editor</string>
+    <string name="retouch">Retouching</string>
+    <string name="masking">Unsharp masking</string>
+
+    <string name="image">Image</string>
+    <string name="backButton">Show original image</string>
+    <string name="inversionButton">Inversion</string>
+    <string name="grayscaleButton">Grayscale</string>
+    <string name="BlackAndWhiteButton">Black and White</string>
+    <string name="darkButton">Dark</string>
+    <string name="lightButton">Light</string>
+    <string name="sepiaButton">Sepia</string>
+    <string name="yellowButton">Yellow</string>
+    <string name="sageButton">Sage Green</string>
+    <string name="orangeButton">Orange</string>
+    <string name="pinkButton">Pink</string>
+    <string name="purpleButton">Purple</string>
+    <string name="redButton">Red</string>
+    <string name="blueButton">Blue</string>
+    <string name="greenButton">Green</string>
+
 </resources>

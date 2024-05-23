@@ -25,92 +25,91 @@
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
-            android:text="Grayscale" />
+            android:text="@string/grayscaleButton" />
 
         <ImageButton
             android:id="@+id/bnw"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
-            android:text="Black White" />
+            android:text="@string/BlackAndWhiteButton" />
 
         <ImageButton
             android:id="@+id/dark"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
-            android:text="Dark" />
+            android:text="@string/darkButton" />
 
         <ImageButton
             android:id="@+id/light"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
-            android:text="light" />
+            android:text="@string/lightButton" />
 
         <ImageButton
             android:id="@+id/sepia"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:background="#00FFFFFF"
-            android:text="Sepia" />
+            android:text="@string/sepiaButton" />
 
         <ImageButton
             android:id="@+id/yellow"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
-            android:text="Yellow" />
+            android:text="@string/yellowButton" />
 
         <ImageButton
             android:id="@+id/sage"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
-            android:text="Sage green" />
+            android:text="@string/sageButton" />
 
         <ImageButton
             android:id="@+id/orange"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
-            android:text="Orange" />
+            android:text="@string/orangeButton" />
 
         <ImageButton
             android:id="@+id/pink"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
-            android:text="Pink" />
+            android:text="@string/pinkButton" />
 
         <ImageButton
             android:id="@+id/purple"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
-            android:text="Purple" />
+            android:text="@string/purpleButton" />
 
         <ImageButton
             android:id="@+id/blue"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
-            android:text="Blue" />
+            android:text="@string/blueButton" />
 
         <ImageButton
             android:id="@+id/red"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
-            android:text="Red" />
+            android:text="@string/redButton" />
 
         <ImageButton
             android:id="@+id/green"
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:background="#00FFFFFF"
-            android:text="Green" />
+            android:text="@string/greenButton" />
     </LinearLayout>
 
 </HorizontalScrollView>

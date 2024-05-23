@@ -3,4 +3,17 @@
     <string name="image">Image</string>
     <string name="backButton">Show original image</string>
     <string name="inversionButton">Inversion</string>
+    <string name="grayscaleButton">Grayscale</string>
+    <string name="BlackAndWhiteButton">Black and White</string>
+    <string name="darkButton">Dark</string>
+    <string name="lightButton">Light</string>
+    <string name="sepiaButton">Sepia</string>
+    <string name="yellowButton">Yellow</string>
+    <string name="sageButton">Sage Green</string>
+    <string name="orangeButton">Orange</string>
+    <string name="pinkButton">Pink</string>
+    <string name="purpleButton">Purple</string>
+    <string name="redButton">Red</string>
+    <string name="blueButton">Blue</string>
+    <string name="greenButton">Green</string>
 </resources>

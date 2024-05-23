@@ -4,6 +4,10 @@
     <string name="load">Load image</string>
     <string name="take_photo">Take photo</string>
     <string name="save">Save image</string>
+<<<<<<< Updated upstream
+=======
+    <string name="image_placeholder">Here will be your image</string>
+>>>>>>> Stashed changes
 
     <string name="rotate">Rotate</string>
     <string name="filter">Color filters</string>
@@ -31,4 +35,9 @@
     <string name="blueButton">Blue</string>
     <string name="greenButton">Green</string>
 
+<<<<<<< Updated upstream
+=======
+    <string name="applyMasking">Apply masking</string>
+
+>>>>>>> Stashed changes
 </resources>

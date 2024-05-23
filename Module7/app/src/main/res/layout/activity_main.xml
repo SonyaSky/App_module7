@@ -42,6 +42,10 @@ tools:context=".MainActivity"
         android:layout_width="match_parent"
         android:layout_height="@dimen/image_size"
         android:layout_margin="@dimen/main_margin"
+<<<<<<< Updated upstream
+=======
+        android:contentDescription=""
+>>>>>>> Stashed changes
         app:layout_constraintEnd_toEndOf="parent"
         android:adjustViewBounds="true" />
 

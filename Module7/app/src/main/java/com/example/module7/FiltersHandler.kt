@@ -23,4 +23,8 @@ interface FiltersHandler {
     fun takePhotosForButtons() : List<Bitmap?>?
 
 
+<<<<<<< Updated upstream
+=======
+    fun sendToMasking(radius: Int, effect: Double, threshold: Int)
+>>>>>>> Stashed changes
 }

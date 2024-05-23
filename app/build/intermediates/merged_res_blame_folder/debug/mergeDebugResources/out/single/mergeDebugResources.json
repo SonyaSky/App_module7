@@ -1,0 +1,126 @@
+[
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/mipmap-mdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.hits.myapplication.app-main-61:/mipmap-mdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.hits.myapplication.app-main-61:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.hits.myapplication.app-main-61:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.hits.myapplication.app-main-61:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.hits.myapplication.app-main-61:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.hits.myapplication.app-main-61:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/drawable_brush_view.xml.flat",
+        "source": "com.hits.myapplication.app-main-61:/drawable/brush_view.xml"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/mipmap-hdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.hits.myapplication.app-main-61:/mipmap-hdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/layout_activity_retouch.xml.flat",
+        "source": "com.hits.myapplication.app-main-61:/layout/activity_retouch.xml"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.hits.myapplication.app-main-61:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.hits.myapplication.app-main-61:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/layout_activity_masking.xml.flat",
+        "source": "com.hits.myapplication.app-main-61:/layout/activity_masking.xml"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/drawable_custom_thumb.xml.flat",
+        "source": "com.hits.myapplication.app-main-61:/drawable/custom_thumb.xml"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/mipmap-xxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.hits.myapplication.app-main-61:/mipmap-xxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/drawable_test.jpg.flat",
+        "source": "com.hits.myapplication.app-main-61:/drawable/test.jpg"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/xml_data_extraction_rules.xml.flat",
+        "source": "com.hits.myapplication.app-main-61:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/layout_bottom_buttons_bar.xml.flat",
+        "source": "com.hits.myapplication.app-main-61:/layout/bottom_buttons_bar.xml"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.hits.myapplication.app-main-61:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/drawable_gem_gif.gif.flat",
+        "source": "com.hits.myapplication.app-main-61:/drawable/gem_gif.gif"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.hits.myapplication.app-main-61:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/mipmap-xhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.hits.myapplication.app-main-61:/mipmap-xhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/xml_backup_rules.xml.flat",
+        "source": "com.hits.myapplication.app-main-61:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/drawable_backward.png.flat",
+        "source": "com.hits.myapplication.app-main-61:/drawable/backward.png"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/layout_activity_main.xml.flat",
+        "source": "com.hits.myapplication.app-main-61:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.hits.myapplication.app-main-61:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.hits.myapplication.app-main-61:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.hits.myapplication.app-main-61:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.hits.myapplication.app-main-61:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.hits.myapplication.app-main-61:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/mipmap-xxxhdpi_ic_launcher_foreground.webp.flat",
+        "source": "com.hits.myapplication.app-main-61:/mipmap-xxxhdpi/ic_launcher_foreground.webp"
+    },
+    {
+        "merged": "com.hits.myapplication.app-debug-59:/drawable_thicker_seekbar.xml.flat",
+        "source": "com.hits.myapplication.app-main-61:/drawable/thicker_seekbar.xml"
+    }
+]

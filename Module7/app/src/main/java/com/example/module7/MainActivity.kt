@@ -188,6 +188,14 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
         binding.selectedImage.setImageBitmap(imageFilters.lightFilter(originalBitmap, "light"))
     }
 
+    override fun sendToSepiaFilter() {
+        binding.selectedImage.setImageBitmap(imageFilters.sepiaFilter(originalBitmap))
+    }
+
+    override fun sendToTintFilter(color: String) {
+        binding.selectedImage.setImageBitmap(imageFilters.tintFilter(originalBitmap, color))
+    }
+
     override fun sendToColorFilter(color: String) {
         binding.selectedImage.setImageBitmap(imageFilters.colorFilter(originalBitmap, color))
     }
@@ -212,8 +220,8 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
                 imageFilters.tintFilter(smallImage, "pink"),
                 imageFilters.tintFilter(smallImage, "purple"),
                 imageFilters.colorFilter(smallImage, "blue"),
-                imageFilters.colorFilter(smallImage, "green"),
-                imageFilters.colorFilter(smallImage, "red")
+                imageFilters.colorFilter(smallImage, "red"),
+                imageFilters.colorFilter(smallImage, "green")
             )
         }
         return null

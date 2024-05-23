@@ -18,8 +18,6 @@ tools:context=".MainActivity"
             style="@style/ButtonStyle"
             android:layout_width="@dimen/zero"
             android:layout_weight="1"
-            android:background="@drawable/rounded_corners"
-            app:backgroundTint="#457EBC"
             android:text="@string/load" />
 
 

@@ -14,6 +14,10 @@ interface FiltersHandler {
 
     fun sendToLightFilter(type: String)
 
+    fun sendToSepiaFilter()
+
+    fun sendToTintFilter(color: String)
+
     fun sendToColorFilter(color: String)
 
     fun takePhotosForButtons() : List<Bitmap?>?

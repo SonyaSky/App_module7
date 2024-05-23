@@ -6,8 +6,9 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:backgroundTint">@drawable/rounded_corners</item>
         <item name="android:layout_margin">@dimen/mini_margin</item>
+        <item name="android:background">@drawable/rounded_corners</item>
+        <item name="backgroundTint">#457EBC</item>
     </style>
 
 </resources>

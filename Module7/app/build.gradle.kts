@@ -53,5 +53,6 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("com.quickbirdstudios:opencv-contrib:3.4.15")
     implementation ("androidx.fragment:fragment:1.7.1")
+    implementation ("com.google.android.material:material:1.3.0")
 
 }

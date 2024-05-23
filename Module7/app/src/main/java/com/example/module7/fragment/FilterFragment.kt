@@ -2,7 +2,6 @@ package com.example.module7.fragment
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -31,11 +30,7 @@ class FilterFragment : Fragment() {
     ): View {
         binding = FragmentFiltersBinding.inflate(inflater, container, false)
 
-        Log.i(null, "FILTER i open it!!!!")
-
         setOnClickListeners()
-
-
 
         return binding.root
     }
@@ -85,9 +80,34 @@ class FilterFragment : Fragment() {
                     listener?.sendToLightFilter("light")
                 }
 
+                binding.sepia.setOnClickListener {
+                    listener?.sendToSepiaFilter()
+                }
+
+                binding.yellow.setOnClickListener {
+                    listener?.sendToTintFilter("yellow")
+                }
+
+                binding.sage.setOnClickListener {
+                    listener?.sendToTintFilter("green")
+                }
+
+                binding.orange.setOnClickListener {
+                    listener?.sendToTintFilter("orange")
+                }
+
+                binding.pink.setOnClickListener {
+                    listener?.sendToTintFilter("pink")
+                }
+
+                binding.purple.setOnClickListener {
+                    listener?.sendToTintFilter("purple")
+                }
+
                 binding.blue.setOnClickListener {
                     listener?.sendToColorFilter("blue")
                 }
+
                 binding.green.setOnClickListener {
                     listener?.sendToColorFilter("green")
                 }

@@ -124,10 +124,10 @@ class ImageFilters(private val activity: MainActivity) {
             return null
         }
         val filteredImage = Bitmap.createBitmap(image.width, image.height, image.config)
-        val factor:Double
+        var factor = 0.5
         if (type == "light")
             factor = 1.5
-        else
+        else if (type == "dark")
             factor = 0.5
         for (x in 0 until image.width) {
             for (y in 0 until image.height) {

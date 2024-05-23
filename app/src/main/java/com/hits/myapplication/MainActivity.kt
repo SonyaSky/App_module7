@@ -20,12 +20,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        val gifImageView = findViewById<ImageView>(R.id.gifImageView)
-//
-//        Glide.with(this)
-//            .asGif()
-//            .load(R.drawable.gem_gif) // Replace with your GIF resource
-//            .into(gifImageView)
 
         val imageView = findViewById<AppCompatImageView>(R.id.imageView)
         val originalImage = (imageView.drawable as BitmapDrawable).bitmap
@@ -34,14 +28,20 @@ class MainActivity : ComponentActivity() {
 
         val nextPage = findViewById<Button>(R.id.retouchButton)
         val nextPage1 = findViewById<Button>(R.id.maskButton)
+        val nextPage2 = findViewById<Button>(R.id.drawingButton)
 
-        nextPage.setOnClickListener {
-            val intent = Intent(this, RetouchActivity::class.java)
+        nextPage2.setOnClickListener {
+            val intent = Intent(this, DrawingActivity::class.java)
             startActivity(intent)
         }
 
         nextPage1.setOnClickListener {
             val intent1 = Intent(this, MaskingActivity::class.java)
+            startActivity(intent1)
+        }
+
+        nextPage.setOnClickListener {
+            val intent1 = Intent(this, RetouchingActivity::class.java)
             startActivity(intent1)
         }
 

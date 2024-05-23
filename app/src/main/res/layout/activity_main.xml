@@ -53,10 +53,10 @@
         android:id="@+id/maskButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Unsharp Masking"
+        android:text="Masking"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
+        app:layout_constraintHorizontal_bias="0.833"
         app:layout_constraintStart_toEndOf="@+id/retouchButton"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.112" />
@@ -65,13 +65,27 @@
         android:id="@+id/retouchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go To Retouching"
+        android:text="Retouching"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.112" />
+
+    <Button
+        android:id="@+id/drawingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Drawing"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/maskButton"
+        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintStart_toEndOf="@+id/retouchButton"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.013" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

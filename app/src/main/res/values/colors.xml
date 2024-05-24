@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="textview_text">#2D2113</color>
+<<<<<<< Updated upstream
+=======
+    <color name="thumb_color">#7C2AC5</color>
+    <color name="thumb_label_color">#7C2AC5</color>
+>>>>>>> Stashed changes
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>

@@ -17,7 +17,7 @@ class RetouchingActivity : ComponentActivity() {
 
         // Default values for brush size and retouch ratio
         val defaultBrushSize = 10f
-        val defaultRetouchRatio = 100
+        val defaultRetouchRatio = 1.0f
         val retouchView = findViewById<RetouchView>(R.id.drawingView)
         val brushSizeSeekBar = findViewById<SeekBar>(R.id.brushSizeSeekBar)
         val brushRatioSeekBar = findViewById<SeekBar>(R.id.brushRatioSeekBar)
@@ -55,7 +55,8 @@ class RetouchingActivity : ComponentActivity() {
         brushRatioSeekBar.progress = (defaultRetouchRatio * 100).toInt()
         brushRatioSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                retouchView.setRetouchRatio(progress)
+                val newRatio = progress / 100f
+                retouchView.setRetouchRatio(newRatio)
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}

@@ -129,22 +129,23 @@ class RetouchView(context: Context, attrs: AttributeSet) : View(context, attrs) 
     }
 
     private fun blendPixels(originalPixel: Int, meanPixel: Int, ratio: Float): Int {
-        val srcA = Color.alpha(meanPixel) * ratio
-        val srcR = Color.red(meanPixel) * ratio
-        val srcG = Color.green(meanPixel) * ratio
-        val srcB = Color.blue(meanPixel) * ratio
+        val srcA = Color.alpha(meanPixel)
+        val srcR = Color.red(meanPixel)
+        val srcG = Color.green(meanPixel)
+        val srcB = Color.blue(meanPixel)
 
-        val destA = Color.alpha(originalPixel) * (1 - ratio)
-        val destR = Color.red(originalPixel) * (1 - ratio)
-        val destG = Color.green(originalPixel) * (1 - ratio)
-        val destB = Color.blue(originalPixel) * (1 - ratio)
+        val destA = Color.alpha(originalPixel)
+        val destR = Color.red(originalPixel)
+        val destG = Color.green(originalPixel)
+        val destB = Color.blue(originalPixel)
 
-        val alpha = (srcA + destA).toInt()
-        val red = ((srcR + destR) / alpha * srcA).toInt()
-        val green = ((srcG + destG) / alpha * srcA).toInt()
-        val blue = ((srcB + destB) / alpha * srcA).toInt()
+        val weight = ratio.coerceIn(0f, 1f)
+        val blendedA = (srcA * weight + destA * (1 - weight)).toInt()
+        val blendedR = (srcR * weight + destR * (1 - weight)).toInt()
+        val blendedG = (srcG * weight + destG * (1 - weight)).toInt()
+        val blendedB = (srcB * weight + destB * (1 - weight)).toInt()
 
-        return Color.argb(alpha, red, green, blue)
+        return Color.argb(blendedA, blendedR, blendedG, blendedB)
     }
 
 
@@ -153,8 +154,8 @@ class RetouchView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         paint.strokeWidth = brushSize
     }
 
-    fun setRetouchRatio(ratio: Int) {
-        retouchRatio = ratio /100f
+    fun setRetouchRatio(ratio: Float) {
+        retouchRatio = ratio
     }
 
     fun clearCanvas() {

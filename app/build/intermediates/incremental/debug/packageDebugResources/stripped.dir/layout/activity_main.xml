@@ -5,7 +5,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
     android:orientation="vertical"
-tools:context=".MainActivity"
+tools:context=".activity.MainActivity"
     android:padding="@dimen/main_margin">
 
     <LinearLayout
@@ -94,31 +94,56 @@ tools:context=".MainActivity"
                 android:id="@+id/masking_btn"
                 android:text="@string/masking" />
 
+            <com.google.android.material.button.MaterialButton
+                style="@style/ButtonStyle"
+                android:id="@+id/drawing_btn"
+                android:text="@string/drawing" />
+
         </LinearLayout>
     </HorizontalScrollView>
 
-    <androidx.fragment.app.FragmentContainerView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/fragment_cont"/>
+        android:orientation="vertical">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/zero"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.fragment.app.FragmentContainerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/fragment_cont"/>
+            </LinearLayout>
+        </ScrollView>
 
-    <com.google.android.material.slider.RangeSlider
-        android:id="@+id/range_slider"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="630dp"
-        android:valueFrom="0"
-        android:valueTo="360"
-        android:stepSize="1"
-        app:layout_anchorGravity="center" />
+        <LinearLayout
+            android:id="@+id/btns_for_filters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/back_btn"
+                style="@style/ButtonStyle"
+                android:minWidth="@dimen/mini_margin"
+                app:icon="@drawable/arrow_back"/>
 
-    <EditText
-        android:id="@+id/scaleFactorEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:hint="@string/scale_hint"
-        android:layout_marginTop="670dp"
-        android:layout_marginStart="200dp"
-        android:inputType="numberDecimal"/>
+            <LinearLayout
+                android:layout_width="@dimen/zero"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/approve_btn"
+                style="@style/ButtonStyle"
+                android:minWidth="@dimen/mini_margin"
+                app:icon="@drawable/tick"/>
+        </LinearLayout>
+    </LinearLayout>
+
     
 </LinearLayout>

@@ -1,9 +1,5 @@
 [
     {
-        "merged": "C:\\Users\\пк\\.gradle\\daemon\\8.4\\com.example.module7.app-mergeDebugResources-31:\\layout\\fragment_face_filters.xml",
-        "source": "C:\\Users\\пк\\.gradle\\daemon\\8.4\\com.example.module7.app-main-34:\\layout\\fragment_face_filters.xml"
-    },
-    {
         "merged": "C:\\Users\\пк\\.gradle\\daemon\\8.4\\com.example.module7.app-mergeDebugResources-31:\\layout\\fragment_rotate.xml",
         "source": "C:\\Users\\пк\\.gradle\\daemon\\8.4\\com.example.module7.app-main-34:\\layout\\fragment_rotate.xml"
     },
@@ -12,8 +8,8 @@
         "source": "C:\\Users\\пк\\.gradle\\daemon\\8.4\\com.example.module7.app-main-34:\\layout\\fragment_filters.xml"
     },
     {
-        "merged": "C:\\Users\\пк\\.gradle\\daemon\\8.4\\com.example.module7.app-mergeDebugResources-31:\\layout\\fragment_rotate_new.xml",
-        "source": "C:\\Users\\пк\\.gradle\\daemon\\8.4\\com.example.module7.app-main-34:\\layout\\fragment_rotate_new.xml"
+        "merged": "com.example.module7.app-mergeDebugResources-31:/layout/activity_main.xml",
+        "source": "com.example.module7.app-main-34:/layout/activity_main.xml"
     },
     {
         "merged": "C:\\Users\\пк\\.gradle\\daemon\\8.4\\com.example.module7.app-mergeDebugResources-31:\\layout\\colors_bar.xml",
@@ -34,9 +30,5 @@
     {
         "merged": "C:\\Users\\пк\\.gradle\\daemon\\8.4\\com.example.module7.app-mergeDebugResources-31:\\layout\\activity_main.xml",
         "source": "C:\\Users\\пк\\.gradle\\daemon\\8.4\\com.example.module7.app-main-34:\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "com.example.module7.app-mergeDebugResources-31:/layout/activity_drawing.xml",
-        "source": "com.example.module7.app-main-34:/layout/activity_drawing.xml"
     }
 ]

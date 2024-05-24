@@ -9,6 +9,7 @@
         <item name="android:layout_margin">@dimen/mini_margin</item>
         <item name="android:background">@drawable/rounded_corners</item>
         <item name="backgroundTint">#ffa62c</item>
+        <item name="iconSize">@dimen/icon_size</item>
     </style>
 
     <style name="ColorButton" parent="Widget.MaterialComponents.Button">

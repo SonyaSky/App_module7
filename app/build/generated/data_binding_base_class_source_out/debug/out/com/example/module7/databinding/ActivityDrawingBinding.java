@@ -14,6 +14,7 @@ import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.module7.R;
 import com.example.module7.components.DrawingView;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.slider.RangeSlider;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -25,6 +26,12 @@ public final class ActivityDrawingBinding implements ViewBinding {
 
   @NonNull
   public final LinearLayout ConstraintLayout;
+
+  @NonNull
+  public final MaterialButton approveBtn;
+
+  @NonNull
+  public final MaterialButton backBtn;
 
   @NonNull
   public final RangeSlider brushSize;
@@ -51,12 +58,15 @@ public final class ActivityDrawingBinding implements ViewBinding {
   public final TextView textView2;
 
   private ActivityDrawingBinding(@NonNull LinearLayout rootView,
-      @NonNull LinearLayout ConstraintLayout, @NonNull RangeSlider brushSize,
+      @NonNull LinearLayout ConstraintLayout, @NonNull MaterialButton approveBtn,
+      @NonNull MaterialButton backBtn, @NonNull RangeSlider brushSize,
       @NonNull RangeSlider brushTransparent, @NonNull Button clearButton,
       @NonNull ColorsBarBinding colorsBar, @NonNull DrawingView drawingView,
       @NonNull AppCompatImageView imageView, @NonNull TextView text1, @NonNull TextView textView2) {
     this.rootView = rootView;
     this.ConstraintLayout = ConstraintLayout;
+    this.approveBtn = approveBtn;
+    this.backBtn = backBtn;
     this.brushSize = brushSize;
     this.brushTransparent = brushTransparent;
     this.clearButton = clearButton;
@@ -95,6 +105,18 @@ public final class ActivityDrawingBinding implements ViewBinding {
     int id;
     missingId: {
       LinearLayout ConstraintLayout = (LinearLayout) rootView;
+
+      id = R.id.approve_btn;
+      MaterialButton approveBtn = ViewBindings.findChildViewById(rootView, id);
+      if (approveBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.back_btn;
+      MaterialButton backBtn = ViewBindings.findChildViewById(rootView, id);
+      if (backBtn == null) {
+        break missingId;
+      }
 
       id = R.id.brushSize;
       RangeSlider brushSize = ViewBindings.findChildViewById(rootView, id);
@@ -145,9 +167,9 @@ public final class ActivityDrawingBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityDrawingBinding((LinearLayout) rootView, ConstraintLayout, brushSize,
-          brushTransparent, clearButton, binding_colorsBar, drawingView, imageView, text1,
-          textView2);
+      return new ActivityDrawingBinding((LinearLayout) rootView, ConstraintLayout, approveBtn,
+          backBtn, brushSize, brushTransparent, clearButton, binding_colorsBar, drawingView,
+          imageView, text1, textView2);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

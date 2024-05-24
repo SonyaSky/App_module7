@@ -1,19 +1,30 @@
 package com.example.module7.activity
 
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Canvas
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import androidx.activity.ComponentActivity
+import androidx.core.content.FileProvider
+import androidx.core.view.drawToBitmap
 import com.example.module7.databinding.ActivityDrawingBinding
+import java.io.File
 import java.io.FileNotFoundException
+import java.io.FileOutputStream
+import java.io.IOException
 import kotlin.math.log
 
 class DrawingActivity : ComponentActivity() {
 
     private lateinit var binding: ActivityDrawingBinding
+    private lateinit var uri : Uri
+    private var bitmap: Bitmap? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,16 +33,41 @@ class DrawingActivity : ComponentActivity() {
 
         val uriString = intent.getStringExtra("image_uri")
         uriString?.let {
-            val uri = Uri.parse(it)
-            val bitmap = getBitmapFromUri(uri)
+            uri = Uri.parse(it)
+            bitmap = getBitmapFromUri(uri)
             binding.imageView.setImageBitmap(bitmap)
+
+            val layoutParams = binding.drawingView.layoutParams
+            layoutParams.width = bitmap!!.width
+            layoutParams.height = bitmap!!.height
+            binding.drawingView.layoutParams = layoutParams
         }
+
 
         var brushSize = 10f
         var transparent = 1.0f
 
         binding.clearButton.setOnClickListener {
             binding.drawingView.clearCanvas()
+        }
+
+        binding.backBtn.setOnClickListener {
+            uri?.let {
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("image_uri", it.toString())
+                startActivity(intent)
+            }
+        }
+
+        binding.approveBtn.setOnClickListener {
+            if (bitmap != null) {
+                val uri: Uri? = saveBitmapAndGetUri(mergeBitmaps(bitmap!!))
+                uri?.let {
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("image_uri", it.toString())
+                    startActivity(intent)
+                }
+            }
         }
 
         binding.colorsBar.black.setOnClickListener {
@@ -110,5 +146,30 @@ class DrawingActivity : ComponentActivity() {
             e.printStackTrace()
             null
         }
+    }
+
+    private fun saveBitmapAndGetUri(bitmap: Bitmap): Uri? {
+        val file = File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "shared_image.png")
+        try {
+            val outputStream = FileOutputStream(file)
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
+            outputStream.flush()
+            outputStream.close()
+            return FileProvider.getUriForFile(this, "${packageName}.fileprovider", file)
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        return null
+    }
+
+    fun mergeBitmaps(mainBitmap : Bitmap): Bitmap {
+        val resultBitmap = Bitmap.createBitmap(mainBitmap.width, mainBitmap.height, mainBitmap.config)
+        val canvas = Canvas(resultBitmap)
+
+        canvas.drawBitmap(mainBitmap, 0f, 0f, null)
+
+        canvas.drawBitmap(binding.drawingView.drawToBitmap(), 0f, 0f, null)
+
+        return resultBitmap
     }
 }

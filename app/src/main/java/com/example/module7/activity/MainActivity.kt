@@ -7,13 +7,16 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
+import android.opengl.Visibility
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
+import androidx.core.view.drawToBitmap
 import com.example.module7.FiltersHandler
 import com.example.module7.R
 import com.example.module7.components.FaceDetection
@@ -34,6 +37,7 @@ import org.opencv.core.Rect
 import org.opencv.core.Scalar
 import org.opencv.imgproc.Imgproc
 import java.io.File
+import java.io.FileNotFoundException
 import java.io.FileOutputStream
 import java.io.IOException
 
@@ -47,6 +51,7 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
     val resizeImage = ResizeImage()
     var facesDetected = false
     val faceFilters = FaceFilters()
+    private lateinit var uri : Uri
     private val changeImage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             val data = result.data
@@ -70,6 +75,16 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnsForFilters.visibility = View.GONE
+
+        val uriString = intent.getStringExtra("image_uri")
+        uriString?.let {
+
+            uri = Uri.parse(it)
+            originalBitmap = getBitmapFromUri(uri)
+            binding.selectedImage.setImageBitmap(originalBitmap)
+        }
+
 
         OpenCVLoader.initDebug()
 
@@ -79,6 +94,7 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
                 replace(R.id.fragment_cont, FilterFragment())
                 commit()
             }
+            binding.btnsForFilters.visibility = View.VISIBLE
             val currentBitmap = (binding.selectedImage.drawable as? BitmapDrawable)?.bitmap
 
             val mat = Mat()
@@ -113,18 +129,26 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
         }
 
         binding.rotateBtn.setOnClickListener {
+            if (facesDetected) {
+                binding.selectedImage.setImageBitmap(originalBitmap)
+            }
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment_cont, RotateFragment())
                 commit()
             }
+            binding.btnsForFilters.visibility = View.VISIBLE
             facesDetected = false
         }
 
         binding.scaleBtn.setOnClickListener {
+            if (facesDetected) {
+                binding.selectedImage.setImageBitmap(originalBitmap)
+            }
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment_cont, ResizeFragment())
                 commit()
             }
+            binding.btnsForFilters.visibility = View.VISIBLE
             facesDetected = false
         }
 
@@ -141,31 +165,46 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
         }*/
 
         binding.filterBtn.setOnClickListener {
+            if (facesDetected) {
+                binding.selectedImage.setImageBitmap(originalBitmap)
+            }
             facesDetected = false
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment_cont, FilterFragment())
                 commit()
             }
+            binding.btnsForFilters.visibility = View.VISIBLE
         }
 
         binding.maskingBtn.setOnClickListener {
+            if (facesDetected) {
+                binding.selectedImage.setImageBitmap(originalBitmap)
+            }
             facesDetected = false
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment_cont, MaskingFragment())
                 commit()
             }
+            binding.btnsForFilters.visibility = View.VISIBLE
         }
 
         binding.saveImageBtn.setOnClickListener {
+            if (facesDetected) {
+                binding.selectedImage.setImageBitmap(originalBitmap)
+            }
             facesDetected = false
             val rotatedBitmap = (binding.selectedImage.drawable as? BitmapDrawable)?.bitmap
             rotatedBitmap?.let { bitmap ->
                 saveBitmap(bitmap)
             }
+            binding.btnsForFilters.visibility = View.VISIBLE
             showToast("Image saved to gallery")
         }
 
         binding.drawingBtn.setOnClickListener {
+            if (facesDetected) {
+                binding.selectedImage.setImageBitmap(originalBitmap)
+            }
             if (originalBitmap != null) {
                 val uri: Uri? = saveBitmapAndGetUri(originalBitmap!!)
                 uri?.let {
@@ -177,7 +216,25 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
             else {
                 showToast("Load the image")
             }
+            facesDetected = false
         }
+
+        binding.backBtn.setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .remove(supportFragmentManager.findFragmentById(R.id.fragment_cont)!!)
+                .commit()
+            binding.btnsForFilters.visibility = View.GONE
+            binding.selectedImage.setImageBitmap(originalBitmap)
+        }
+
+        binding.approveBtn.setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .remove(supportFragmentManager.findFragmentById(R.id.fragment_cont)!!)
+                .commit()
+            binding.btnsForFilters.visibility = View.GONE
+            originalBitmap = binding.selectedImage.drawToBitmap()
+        }
+
     }
 
 
@@ -314,5 +371,15 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
             e.printStackTrace()
         }
         return null
+    }
+
+    private fun getBitmapFromUri(uri: Uri): Bitmap? {
+        return try {
+            val inputStream = contentResolver.openInputStream(uri)
+            BitmapFactory.decodeStream(inputStream)
+        } catch (e: FileNotFoundException) {
+            e.printStackTrace()
+            null
+        }
     }
 }

@@ -26,10 +26,10 @@ com.example.module7.app-appcompat-resources-1.6.1-24 C:\Users\пк\.gradle\cache
 com.example.module7.app-material-1.11.0-25 C:\Users\пк\.gradle\caches\transforms-3\ee0063f0d4c8967c634e750c7bcb2e46\transformed\material-1.11.0\res
 com.example.module7.app-savedstate-1.2.1-26 C:\Users\пк\.gradle\caches\transforms-3\fa12240bf32b116bab2be3fd2087a5f7\transformed\savedstate-1.2.1\res
 com.example.module7.app-core-runtime-2.2.0-27 C:\Users\пк\.gradle\caches\transforms-3\fb953d4e36c118eb086d73b35b68b69a\transformed\core-runtime-2.2.0\res
-com.example.module7.app-pngs-28 D:\AndroidStudioApps\Module7\app\build\generated\res\pngs\debug
-com.example.module7.app-resValues-29 D:\AndroidStudioApps\Module7\app\build\generated\res\resValues\debug
-com.example.module7.app-packageDebugResources-30 D:\AndroidStudioApps\Module7\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.example.module7.app-packageDebugResources-31 D:\AndroidStudioApps\Module7\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.example.module7.app-debug-32 D:\AndroidStudioApps\Module7\app\build\intermediates\merged_res\debug\mergeDebugResources
-com.example.module7.app-debug-33 D:\AndroidStudioApps\Module7\app\src\debug\res
-com.example.module7.app-main-34 D:\AndroidStudioApps\Module7\app\src\main\res
+com.example.module7.app-pngs-28 D:\GitHub\App_module7\app\build\generated\res\pngs\debug
+com.example.module7.app-resValues-29 D:\GitHub\App_module7\app\build\generated\res\resValues\debug
+com.example.module7.app-packageDebugResources-30 D:\GitHub\App_module7\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.module7.app-packageDebugResources-31 D:\GitHub\App_module7\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.module7.app-debug-32 D:\GitHub\App_module7\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.example.module7.app-debug-33 D:\GitHub\App_module7\app\src\debug\res
+com.example.module7.app-main-34 D:\GitHub\App_module7\app\src\main\res

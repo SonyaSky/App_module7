@@ -4,7 +4,6 @@ package com.example.module7.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
@@ -14,7 +13,6 @@ import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.module7.R;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.slider.RangeSlider;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -22,6 +20,15 @@ import java.lang.String;
 public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   private final LinearLayout rootView;
+
+  @NonNull
+  public final MaterialButton approveBtn;
+
+  @NonNull
+  public final MaterialButton backBtn;
+
+  @NonNull
+  public final LinearLayout btnsForFilters;
 
   @NonNull
   public final MaterialButton drawingBtn;
@@ -42,9 +49,6 @@ public final class ActivityMainBinding implements ViewBinding {
   public final MaterialButton pickImageBtn;
 
   @NonNull
-  public final RangeSlider rangeSlider;
-
-  @NonNull
   public final MaterialButton retouchBtn;
 
   @NonNull
@@ -57,9 +61,6 @@ public final class ActivityMainBinding implements ViewBinding {
   public final MaterialButton scaleBtn;
 
   @NonNull
-  public final EditText scaleFactorEditText;
-
-  @NonNull
   public final ImageView selectedImage;
 
   @NonNull
@@ -68,27 +69,29 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final MaterialButton vectorBtn;
 
-  private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull MaterialButton drawingBtn,
-      @NonNull MaterialButton faceBtn, @NonNull MaterialButton filterBtn,
-      @NonNull FragmentContainerView fragmentCont, @NonNull MaterialButton maskingBtn,
-      @NonNull MaterialButton pickImageBtn, @NonNull RangeSlider rangeSlider,
+  private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull MaterialButton approveBtn,
+      @NonNull MaterialButton backBtn, @NonNull LinearLayout btnsForFilters,
+      @NonNull MaterialButton drawingBtn, @NonNull MaterialButton faceBtn,
+      @NonNull MaterialButton filterBtn, @NonNull FragmentContainerView fragmentCont,
+      @NonNull MaterialButton maskingBtn, @NonNull MaterialButton pickImageBtn,
       @NonNull MaterialButton retouchBtn, @NonNull MaterialButton rotateBtn,
       @NonNull MaterialButton saveImageBtn, @NonNull MaterialButton scaleBtn,
-      @NonNull EditText scaleFactorEditText, @NonNull ImageView selectedImage,
-      @NonNull MaterialButton takePhotoBtn, @NonNull MaterialButton vectorBtn) {
+      @NonNull ImageView selectedImage, @NonNull MaterialButton takePhotoBtn,
+      @NonNull MaterialButton vectorBtn) {
     this.rootView = rootView;
+    this.approveBtn = approveBtn;
+    this.backBtn = backBtn;
+    this.btnsForFilters = btnsForFilters;
     this.drawingBtn = drawingBtn;
     this.faceBtn = faceBtn;
     this.filterBtn = filterBtn;
     this.fragmentCont = fragmentCont;
     this.maskingBtn = maskingBtn;
     this.pickImageBtn = pickImageBtn;
-    this.rangeSlider = rangeSlider;
     this.retouchBtn = retouchBtn;
     this.rotateBtn = rotateBtn;
     this.saveImageBtn = saveImageBtn;
     this.scaleBtn = scaleBtn;
-    this.scaleFactorEditText = scaleFactorEditText;
     this.selectedImage = selectedImage;
     this.takePhotoBtn = takePhotoBtn;
     this.vectorBtn = vectorBtn;
@@ -121,6 +124,24 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.approve_btn;
+      MaterialButton approveBtn = ViewBindings.findChildViewById(rootView, id);
+      if (approveBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.back_btn;
+      MaterialButton backBtn = ViewBindings.findChildViewById(rootView, id);
+      if (backBtn == null) {
+        break missingId;
+      }
+
+      id = R.id.btns_for_filters;
+      LinearLayout btnsForFilters = ViewBindings.findChildViewById(rootView, id);
+      if (btnsForFilters == null) {
+        break missingId;
+      }
+
       id = R.id.drawing_btn;
       MaterialButton drawingBtn = ViewBindings.findChildViewById(rootView, id);
       if (drawingBtn == null) {
@@ -157,12 +178,6 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.range_slider;
-      RangeSlider rangeSlider = ViewBindings.findChildViewById(rootView, id);
-      if (rangeSlider == null) {
-        break missingId;
-      }
-
       id = R.id.retouch_btn;
       MaterialButton retouchBtn = ViewBindings.findChildViewById(rootView, id);
       if (retouchBtn == null) {
@@ -187,12 +202,6 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.scaleFactorEditText;
-      EditText scaleFactorEditText = ViewBindings.findChildViewById(rootView, id);
-      if (scaleFactorEditText == null) {
-        break missingId;
-      }
-
       id = R.id.selected_image;
       ImageView selectedImage = ViewBindings.findChildViewById(rootView, id);
       if (selectedImage == null) {
@@ -211,9 +220,9 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((LinearLayout) rootView, drawingBtn, faceBtn, filterBtn,
-          fragmentCont, maskingBtn, pickImageBtn, rangeSlider, retouchBtn, rotateBtn, saveImageBtn,
-          scaleBtn, scaleFactorEditText, selectedImage, takePhotoBtn, vectorBtn);
+      return new ActivityMainBinding((LinearLayout) rootView, approveBtn, backBtn, btnsForFilters,
+          drawingBtn, faceBtn, filterBtn, fragmentCont, maskingBtn, pickImageBtn, retouchBtn,
+          rotateBtn, saveImageBtn, scaleBtn, selectedImage, takePhotoBtn, vectorBtn);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

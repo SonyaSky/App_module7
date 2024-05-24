@@ -9,27 +9,27 @@
 9        android:targetSdkVersion="34" />
 10    <!-- Devices running Android 12L (API level 32) or lower -->
 11    <uses-permission
-11-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:5:5-107
+11-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:5:5-107
 12        android:name="android.permission.READ_EXTERNAL_STORAGE"
-12-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:5:22-77
+12-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:5:22-77
 13        android:maxSdkVersion="32" />
-13-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:5:78-104
+13-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:5:78-104
 14
 15    <!-- Devices running Android 13 (API level 33) or higher -->
 16    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-16-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:8:5-76
-16-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:8:22-73
+16-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:8:5-76
+16-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:8:22-73
 17    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
-17-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:9:5-75
-17-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:9:22-72
+17-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:9:5-75
+17-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:9:22-72
 18
 19    <!--
 20         To handle the reselection within the app on devices running Android 14
 21         or higher if your app targets Android 14 (API level 34) or higher.
 22    -->
 23    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
-23-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:13:5-90
-23-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:13:22-87
+23-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:13:5-90
+23-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:13:22-87
 24
 25    <permission
 25-->[androidx.core:core:1.13.0] C:\Users\пк\.gradle\caches\transforms-3\99682d4b8ce05f4c14a9077013757350\transformed\core-1.13.0\AndroidManifest.xml:22:5-24:47
@@ -43,68 +43,68 @@
 29-->[androidx.core:core:1.13.0] C:\Users\пк\.gradle\caches\transforms-3\99682d4b8ce05f4c14a9077013757350\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
 30
 31    <application
-31-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:18:5-50:19
+31-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:18:5-50:19
 32        android:allowBackup="true"
-32-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:19:9-35
+32-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:19:9-35
 33        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 33-->[androidx.core:core:1.13.0] C:\Users\пк\.gradle\caches\transforms-3\99682d4b8ce05f4c14a9077013757350\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
 34        android:dataExtractionRules="@xml/data_extraction_rules"
-34-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:20:9-65
+34-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:20:9-65
 35        android:debuggable="true"
 36        android:extractNativeLibs="false"
 37        android:fullBackupContent="@xml/backup_rules"
-37-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:21:9-54
+37-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:21:9-54
 38        android:icon="@mipmap/ic_launcher"
-38-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:22:9-43
+38-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:22:9-43
 39        android:label="@string/app_name"
-39-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:23:9-41
+39-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:23:9-41
 40        android:roundIcon="@mipmap/ic_launcher_round"
-40-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:24:9-54
+40-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:24:9-54
 41        android:supportsRtl="true"
-41-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:25:9-35
+41-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:25:9-35
 42        android:testOnly="true"
 43        android:theme="@style/Theme.Module7" >
-43-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:26:9-45
+43-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:26:9-45
 44        <activity
-44-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:28:9-36:20
+44-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:28:9-36:20
 45            android:name="com.example.module7.activity.MainActivity"
-45-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:29:13-50
+45-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:29:13-50
 46            android:exported="true" >
-46-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:30:13-36
+46-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:30:13-36
 47            <intent-filter>
-47-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:31:13-35:29
+47-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:31:13-35:29
 48                <action android:name="android.intent.action.MAIN" />
-48-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:32:17-69
-48-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:32:25-66
+48-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:32:17-69
+48-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:32:25-66
 49
 50                <category android:name="android.intent.category.LAUNCHER" />
-50-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:34:17-77
-50-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:34:27-74
+50-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:34:17-77
+50-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:34:27-74
 51            </intent-filter>
 52        </activity>
 53        <activity
-53-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:37:9-40:20
+53-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:37:9-40:20
 54            android:name="com.example.module7.activity.DrawingActivity"
-54-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:38:13-53
+54-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:38:13-53
 55            android:exported="true" >
-55-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:39:13-36
+55-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:39:13-36
 56        </activity>
 57
 58        <provider
 59            android:name="androidx.core.content.FileProvider"
-59-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:42:13-62
+59-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:42:13-62
 60            android:authorities="com.example.module7.fileprovider"
-60-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:43:13-64
+60-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:43:13-64
 61            android:exported="false"
-61-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:44:13-37
+61-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:44:13-37
 62            android:grantUriPermissions="true" >
-62-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:45:13-47
+62-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:45:13-47
 63            <meta-data
-63-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:46:13-48:54
+63-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:46:13-48:54
 64                android:name="android.support.FILE_PROVIDER_PATHS"
-64-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:47:17-67
+64-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:47:17-67
 65                android:resource="@xml/file_paths" />
-65-->D:\AndroidStudioApps\Module7\app\src\main\AndroidManifest.xml:48:17-51
+65-->D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:48:17-51
 66        </provider>
 67        <provider
 67-->[androidx.emoji2:emoji2:1.2.0] C:\Users\пк\.gradle\caches\transforms-3\1f12b346925ae0dccc052cd3dd0b71cd\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20

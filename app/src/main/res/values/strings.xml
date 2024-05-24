@@ -36,6 +36,8 @@
     <string name="blueButton">Blue</string>
     <string name="greenButton">Green</string>
 
+    <string name="clearButton">Clear</string>
+
     <string name="applyMasking">Apply masking</string>
 
 </resources>

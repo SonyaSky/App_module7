@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-<<<<<<< Updated upstream
-    xmlns:tools="http://schemas.android.com/tools"
-=======
->>>>>>> Stashed changes
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/fragment_rotate"
@@ -13,12 +9,9 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< Updated upstream
-        android:orientation="horizontal">
-=======
         android:orientation="horizontal"
-        android:layout_margin="@dimen/mini_margin">
->>>>>>> Stashed changes
+        android:layout_marginLeft="@dimen/mini_margin"
+        android:layout_marginRight="@dimen/mini_margin">
 
         <TextView
             android:id="@+id/text1"
@@ -36,12 +29,9 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< Updated upstream
-        android:orientation="horizontal">
-=======
         android:orientation="horizontal"
-        android:layout_margin="@dimen/mini_margin">>
->>>>>>> Stashed changes
+        android:layout_marginLeft="@dimen/mini_margin"
+        android:layout_marginRight="@dimen/mini_margin">
 
         <TextView
             android:id="@+id/text2"
@@ -61,12 +51,9 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< Updated upstream
-        android:orientation="horizontal">
-=======
         android:orientation="horizontal"
-        android:layout_margin="@dimen/mini_margin">>
->>>>>>> Stashed changes
+        android:layout_marginLeft="@dimen/mini_margin"
+        android:layout_marginRight="@dimen/mini_margin">
 
         <TextView
             android:id="@+id/text3"

@@ -2,7 +2,7 @@ package com.example.module7.components
 
 import android.graphics.Bitmap
 import android.graphics.Color
-import com.example.module7.MainActivity
+import com.example.module7.activity.MainActivity
 import kotlin.math.min
 
 class ImageFilters(private val activity: MainActivity) {

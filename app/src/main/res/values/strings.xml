@@ -14,6 +14,7 @@
     <string name="vector">Vector editor</string>
     <string name="retouch">Retouching</string>
     <string name="masking">Unsharp masking</string>
+    <string name="drawing">Drawing</string>
 
     <string name="effect_masking">Effect</string>
     <string name="radius_masking">Radius</string>

@@ -50,7 +50,6 @@ class RetouchView(context: Context, attrs: AttributeSet) : View(context, attrs) 
     }
 
 
-
     override fun onTouchEvent(event: MotionEvent): Boolean {
         val touchX = event.x
         val touchY = event.y
@@ -82,13 +81,13 @@ class RetouchView(context: Context, attrs: AttributeSet) : View(context, attrs) 
 
 
     private fun applyMeanFilter(x: Int, y: Int) {
-        val radius = brushSize.toInt()
+        val radius = (brushSize / 2).toInt()
         val pixelValues = mutableListOf<Int>()
 
         for (dx in -radius..radius) {
             for (dy in -radius..radius) {
-                val pixelX = (x + dx).coerceIn(0, canvasBitmap!!.width - 1)
-                val pixelY = (y + dy).coerceIn(0, canvasBitmap!!.height - 1)
+                val pixelX = (x + dx).coerceIn(radius, canvasBitmap!!.width - radius - 1)
+                val pixelY = (y + dy).coerceIn(radius, canvasBitmap!!.height - radius - 1)
                 pixelValues.add(canvasBitmap!!.getPixel(pixelX, pixelY))
             }
         }
@@ -96,8 +95,8 @@ class RetouchView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         val meanPixel = computeMeanPixel(pixelValues)
         for (dx in -radius..radius) {
             for (dy in -radius..radius) {
-                val pixelX = (x + dx).coerceIn(0, canvasBitmap!!.width - 1)
-                val pixelY = (y + dy).coerceIn(0, canvasBitmap!!.height - 1)
+                val pixelX = (x + dx).coerceIn(radius, canvasBitmap!!.width - radius - 1)
+                val pixelY = (y + dy).coerceIn(radius, canvasBitmap!!.height - radius - 1)
                 val originalPixel = canvasBitmap!!.getPixel(pixelX, pixelY)
                 val blendedPixel = blendPixels(originalPixel, meanPixel, retouchRatio)
                 canvasBitmap!!.setPixel(pixelX, pixelY, blendedPixel)

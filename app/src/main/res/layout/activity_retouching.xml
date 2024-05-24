@@ -21,42 +21,18 @@
         app:layout_constraintVertical_bias="0.208"
         app:srcCompat="@drawable/test" />
 
-    <!--    <com.hits.myapplication.MySeekBar-->
-    <!--        android:id="@+id/brushSizeSeekBar"-->
-    <!--        style="@style/Widget.AppCompat.SeekBar"-->
-    <!--        android:layout_width="207dp"-->
-    <!--        android:layout_height="65dp"-->
-    <!--        android:max="100"-->
-    <!--        android:min="1"-->
-    <!--        android:progress="1"-->
-    <!--        android:progressDrawable="@drawable/thicker_seekbar"-->
-    <!--        android:splitTrack="false"-->
-    <!--        android:thumb="@drawable/custom_thumb"-->
-    <!--        android:thumbTintMode="src_in"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.926"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/imageView"-->
-    <!--        app:layout_constraintVertical_bias="0.189" />-->
+    <com.hits.myapplication.RetouchView
+        android:id="@+id/drawingView"
+        android:layout_width="match_parent"
+        android:layout_height="385dp"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.208" />
 
-    <!--    <com.hits.myapplication.MySeekBar-->
-    <!--        android:id="@+id/brushRatioSeekBar"-->
-    <!--        style="@style/Widget.AppCompat.SeekBar"-->
-    <!--        android:layout_width="207dp"-->
-    <!--        android:layout_height="65dp"-->
-    <!--        android:max="100"-->
-    <!--        android:progress="0"-->
-    <!--        android:progressDrawable="@drawable/thicker_seekbar"-->
-    <!--        android:splitTrack="false"-->
-    <!--        android:thumb="@drawable/custom_thumb"-->
-    <!--        android:thumbTintMode="src_in"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.921"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/brushSizeSeekBar"-->
-    <!--        app:layout_constraintVertical_bias="0.0" />-->
+
 
     <SeekBar
         android:id="@+id/brushSizeSeekBar"
@@ -92,16 +68,6 @@
         app:layout_constraintVertical_bias="0.0" />
 
 
-    <com.hits.myapplication.RetouchView
-        android:id="@+id/drawingView"
-        android:layout_width="match_parent"
-        android:layout_height="385dp"
-        android:layout_margin="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.208" />
 
     <TextView
         android:id="@+id/text1"
@@ -133,7 +99,16 @@
         app:layout_constraintTop_toBottomOf="@+id/text1"
         app:layout_constraintVertical_bias="0.198" />
 
-
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Clear"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -45,15 +45,6 @@ class MainActivity : ComponentActivity() {
             startActivity(intent1)
         }
 
-//        val brushSizeSeekBar = findViewById<CustomSeekBar>(R.id.brushSizeSeekBar)
-//        val brushSizeTextView = findViewById<TextView>(R.id.brushSizeTextView)
-//
-//        brushSizeSeekBar.setProgressTextView(brushSizeTextView)
-//
-//        val brushRatioSeekBar = findViewById<CustomSeekBar>(R.id.brushRatioSeekBar)
-//        val brushRatioTextView = findViewById<TextView>(R.id.brushRatioTextView)
-//
-//        brushRatioSeekBar.setProgressTextView(brushRatioTextView)
 
     }
 }

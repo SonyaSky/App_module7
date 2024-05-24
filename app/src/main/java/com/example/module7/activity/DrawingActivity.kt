@@ -36,11 +36,6 @@ class DrawingActivity : ComponentActivity() {
             uri = Uri.parse(it)
             bitmap = getBitmapFromUri(uri)
             binding.imageView.setImageBitmap(bitmap)
-
-            val layoutParams = binding.drawingView.layoutParams
-            layoutParams.width = bitmap!!.width
-            layoutParams.height = bitmap!!.height
-            binding.drawingView.layoutParams = layoutParams
         }
 
 
@@ -168,7 +163,13 @@ class DrawingActivity : ComponentActivity() {
 
         canvas.drawBitmap(mainBitmap, 0f, 0f, null)
 
-        canvas.drawBitmap(binding.drawingView.drawToBitmap(), 0f, 0f, null)
+        canvas.drawBitmap(
+            Bitmap.createScaledBitmap(
+                binding.drawingView.drawToBitmap(),
+                mainBitmap.width,
+                mainBitmap.height,
+                true),
+            0f, 0f, null)
 
         return resultBitmap
     }

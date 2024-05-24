@@ -18,11 +18,7 @@
         app:layout_anchorGravity="center" />
 
     <com.google.android.material.slider.RangeSlider
-<<<<<<< Updated upstream
-        android:id="@+id/radius_seek_Bar"
-=======
         android:id="@+id/radius_seek_bar"
->>>>>>> Stashed changes
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:valueFrom="2"
@@ -40,16 +36,9 @@
         app:layout_anchorGravity="center" />
 
     <com.google.android.material.button.MaterialButton
-<<<<<<< Updated upstream
-        android:id="@+id/rotate_image"
-        style="@style/ButtonStyle"
-        android:layout_centerHorizontal="true"
-        android:text="rotate 90 degrees" />
-=======
         android:id="@+id/masking_apply"
         style="@style/ButtonStyle"
         android:layout_centerHorizontal="true"
         android:text="@string/applyMasking" />
->>>>>>> Stashed changes
 
 </LinearLayout>

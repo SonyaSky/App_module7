@@ -1,29 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
-    <color name="ic_launcher_background">#7C2AC5</color>
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
+    <dimen name="image_size">385dp</dimen>
+    <dimen name="main_margin">16dp</dimen>
+    <dimen name="mini_margin">8dp</dimen>
+    <dimen name="zero">0dp</dimen>
     <string name="BlackAndWhiteButton">Black and White</string>
     <string name="app_name">Gemstone</string>
+    <string name="applyMasking">Apply masking</string>
     <string name="backButton">Show original image</string>
     <string name="blueButton">Blue</string>
     <string name="darkButton">Dark</string>
+    <string name="face">Face detection</string>
+    <string name="filter">Color filters</string>
     <string name="grayscaleButton">Grayscale</string>
     <string name="greenButton">Green</string>
     <string name="image">Image</string>
+    <string name="image_placeholder">Here will be your image</string>
     <string name="inversionButton">Inversion</string>
     <string name="lightButton">Light</string>
+    <string name="load">Load image</string>
+    <string name="masking">Unsharp masking</string>
     <string name="orangeButton">Orange</string>
     <string name="pinkButton">Pink</string>
     <string name="purpleButton">Purple</string>
     <string name="redButton">Red</string>
+    <string name="retouch">Retouching</string>
+    <string name="rotate">Rotate</string>
     <string name="sageButton">Sage Green</string>
+    <string name="save">Save image</string>
+    <string name="scale">Scale</string>
+    <string name="scale_hint">Scale Factor</string>
     <string name="sepiaButton">Sepia</string>
+    <string name="take_photo">Take photo</string>
+    <string name="vector">Vector editor</string>
     <string name="yellowButton">Yellow</string>
-    <style name="Theme.MyApplication" parent="android:Theme.Material.Light.NoActionBar"/>
+    <style name="Base.Theme.Module7" parent="Theme.Material3.DayNight.NoActionBar">
+        
+        
+    </style>
+    <style name="ButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:layout_margin">@dimen/mini_margin</item>
+        <item name="android:background">@drawable/rounded_corners</item>
+        <item name="backgroundTint">#457EBC</item>
+    </style>
+    <style name="Theme.Module7" parent="Base.Theme.Module7"/>
 </resources>

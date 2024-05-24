@@ -14,18 +14,13 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.example.module7.components.FaceDetection
+import com.example.module7.components.FaceFilters
 import com.example.module7.components.ImageFilters
-<<<<<<< Updated upstream
-import com.example.module7.components.RotateImage
-import com.example.module7.databinding.ActivityMainBinding
-import com.example.module7.fragment.FilterFragment
-=======
 import com.example.module7.components.Masking
 import com.example.module7.components.RotateImage
 import com.example.module7.databinding.ActivityMainBinding
 import com.example.module7.fragment.FilterFragment
 import com.example.module7.fragment.MaskingFragment
->>>>>>> Stashed changes
 import com.example.module7.fragment.RotateFragment
 import org.opencv.android.OpenCVLoader
 import org.opencv.android.Utils
@@ -40,11 +35,10 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
     private lateinit var binding: ActivityMainBinding
     private var originalBitmap: Bitmap? = null
     private val imageFilters = ImageFilters(this)
-<<<<<<< Updated upstream
-=======
     private val masking = Masking()
->>>>>>> Stashed changes
     val rotateImage = RotateImage()
+    var facesDetected = false
+    val faceFilters = FaceFilters()
     private val changeImage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             val data = result.data
@@ -72,6 +66,11 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
         OpenCVLoader.initDebug()
 
         binding.faceBtn.setOnClickListener {
+
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.fragment_cont, FilterFragment())
+                commit()
+            }
             val currentBitmap = (binding.selectedImage.drawable as? BitmapDrawable)?.bitmap
 
             val mat = Mat()
@@ -89,16 +88,20 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
             currentBitmap?.let { currentBitmap ->
                 binding.selectedImage.setImageBitmap(resultBitmap)
             }
+            facesDetected = true
+            faceFilters.setFaces(faces)
         }
 
         binding.pickImageBtn.setOnClickListener {
             val pickImg = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             changeImage.launch(pickImg)
+            facesDetected = false
         }
 
         binding.takePhotoBtn.setOnClickListener {
             val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+            facesDetected = false
         }
 
         binding.rotateBtn.setOnClickListener {
@@ -106,6 +109,7 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
                 replace(R.id.fragment_cont, RotateFragment())
                 commit()
             }
+            facesDetected = false
         }
 
         binding.scaleBtn.setOnClickListener {
@@ -117,26 +121,27 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
                     binding.selectedImage.setImageBitmap(scaledBitmap)
                 } ?: showToast("Invalid scale factor")
             } ?: showToast("No image selected")
+            facesDetected = false
         }
 
         binding.filterBtn.setOnClickListener {
+            facesDetected = false
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment_cont, FilterFragment())
                 commit()
             }
         }
 
-<<<<<<< Updated upstream
-=======
         binding.maskingBtn.setOnClickListener {
+            facesDetected = false
             supportFragmentManager.beginTransaction().apply {
                 replace(R.id.fragment_cont, MaskingFragment())
                 commit()
             }
         }
 
->>>>>>> Stashed changes
         binding.saveImageBtn.setOnClickListener {
+            facesDetected = false
             val rotatedBitmap = (binding.selectedImage.drawable as? BitmapDrawable)?.bitmap
             rotatedBitmap?.let { bitmap ->
                 saveBitmap(bitmap)
@@ -194,44 +199,44 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
     }
 
     override fun sendToInversionFilter() {
-<<<<<<< Updated upstream
-        //если вот тут ругается, то нужно будет вставить проверку на null из inversionFilter
-=======
->>>>>>> Stashed changes
-        binding.selectedImage.setImageBitmap(imageFilters.inversionFilter(originalBitmap))
+        if (facesDetected) binding.selectedImage.setImageBitmap(faceFilters.inversionFilter(originalBitmap))
+        else binding.selectedImage.setImageBitmap(imageFilters.inversionFilter(originalBitmap))
     }
 
     override fun sendToGrayscaleFilter() {
-        binding.selectedImage.setImageBitmap(imageFilters.grayscaleFilter(originalBitmap))
+        if (facesDetected) binding.selectedImage.setImageBitmap(faceFilters.grayscaleFilter(originalBitmap))
+        else binding.selectedImage.setImageBitmap(imageFilters.grayscaleFilter(originalBitmap))
     }
 
     override fun sendToBNWFilter() {
-        binding.selectedImage.setImageBitmap(imageFilters.blackAndWhiteFilter(originalBitmap))
+        if (facesDetected) binding.selectedImage.setImageBitmap(faceFilters.blackAndWhiteFilter(originalBitmap))
+        else binding.selectedImage.setImageBitmap(imageFilters.blackAndWhiteFilter(originalBitmap))
     }
 
     override fun sendToLightFilter(type: String) {
-        binding.selectedImage.setImageBitmap(imageFilters.lightFilter(originalBitmap, "light"))
+        if (facesDetected) binding.selectedImage.setImageBitmap(faceFilters.lightFilter(originalBitmap, type))
+        else binding.selectedImage.setImageBitmap(imageFilters.lightFilter(originalBitmap, type))
     }
 
     override fun sendToSepiaFilter() {
-        binding.selectedImage.setImageBitmap(imageFilters.sepiaFilter(originalBitmap))
+        if (facesDetected) binding.selectedImage.setImageBitmap(faceFilters.sepiaFilter(originalBitmap))
+        else binding.selectedImage.setImageBitmap(imageFilters.sepiaFilter(originalBitmap))
     }
 
     override fun sendToTintFilter(color: String) {
-        binding.selectedImage.setImageBitmap(imageFilters.tintFilter(originalBitmap, color))
+        if (facesDetected) binding.selectedImage.setImageBitmap(faceFilters.tintFilter(originalBitmap, color))
+        else binding.selectedImage.setImageBitmap(imageFilters.tintFilter(originalBitmap, color))
     }
 
     override fun sendToColorFilter(color: String) {
-        binding.selectedImage.setImageBitmap(imageFilters.colorFilter(originalBitmap, color))
+        if (facesDetected) binding.selectedImage.setImageBitmap(faceFilters.colorFilter(originalBitmap, color))
+        else binding.selectedImage.setImageBitmap(imageFilters.colorFilter(originalBitmap, color))
     }
 
-<<<<<<< Updated upstream
-=======
     override fun sendToMasking(radius: Int, effect: Double, threshold: Int) {
         binding.selectedImage.setImageBitmap(masking.createMask(originalBitmap, radius, effect, threshold))
     }
 
->>>>>>> Stashed changes
     override fun takePhotosForButtons(): List<Bitmap?>? {
         val thumbnailWidth = 200
         val thumbnailHeight = 200

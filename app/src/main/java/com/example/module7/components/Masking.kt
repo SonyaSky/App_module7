@@ -2,13 +2,6 @@ package com.example.module7.components
 
 import android.graphics.Bitmap
 import android.graphics.Color
-<<<<<<< Updated upstream
-import android.graphics.Matrix
-import android.graphics.drawable.BitmapDrawable
-import android.os.Bundle
-import androidx.appcompat.widget.AppCompatImageView
-=======
->>>>>>> Stashed changes
 import kotlin.math.PI
 import kotlin.math.exp
 import kotlin.math.max
@@ -39,14 +32,10 @@ class Masking {
         return kernel
     }
 
-<<<<<<< Updated upstream
-    private fun createMask(image: Bitmap, radius: Int, amount: Double, threshold: Int): Bitmap {
-=======
     fun createMask(image: Bitmap?, radius: Int, amount: Double, threshold: Int): Bitmap? {
         if (image == null) {
             return null
         }
->>>>>>> Stashed changes
         val blurred = Bitmap.createBitmap(image.width, image.height, image.config)
         val result = Bitmap.createBitmap(image.width, image.height, image.config)
         val kernel = createGKernel(radius)

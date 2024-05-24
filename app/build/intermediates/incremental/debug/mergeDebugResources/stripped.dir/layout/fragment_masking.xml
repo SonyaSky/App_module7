@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_rotate"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/mini_margin"
+        android:layout_marginRight="@dimen/mini_margin">
+
+        <TextView
+            android:id="@+id/text1"
+            style="@style/TextViewStyle"
+            android:text="@string/effect_masking" />
+
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/effect_seek_bar"
+            style="@style/RangeSlider"
+            android:valueFrom="0"
+            android:valueTo="400"
+            app:layout_anchorGravity="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/mini_margin"
+        android:layout_marginRight="@dimen/mini_margin">
+
+        <TextView
+            android:id="@+id/text2"
+            style="@style/TextViewStyle"
+            android:text="@string/radius_masking" />
+
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/radius_seek_bar"
+            style="@style/RangeSlider"
+            android:valueFrom="2"
+            android:valueTo="45"
+            android:stepSize="1"
+            app:layout_anchorGravity="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/mini_margin"
+        android:layout_marginRight="@dimen/mini_margin">
+
+        <TextView
+            android:id="@+id/text3"
+            style="@style/TextViewStyle"
+            android:text="@string/threshold_masking" />
+
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/threshold_seek_bar"
+            style="@style/RangeSlider"
+            android:valueFrom="0"
+            android:valueTo="255"
+            android:stepSize="1"
+            app:layout_anchorGravity="center" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/masking_apply"
+        style="@style/ButtonStyle"
+        android:layout_centerHorizontal="true"
+        android:text="@string/applyMasking" />
+
+</LinearLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/fragment_rotate">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/rotate_image"
+        style="@style/ButtonStyle"
+        android:layout_centerHorizontal="true"
+        android:text="rotate 90 degrees" />
+
+    <com.google.android.material.slider.RangeSlider
+        android:id="@+id/range_slider"
+        style="@style/RangeSlider"
+        android:valueFrom="0"
+        android:valueTo="360"
+        app:layout_anchorGravity="center" />
+
+</LinearLayout>

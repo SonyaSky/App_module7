@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?> <LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+    android:orientation="vertical"
+tools:context=".activity.MainActivity"
+    android:padding="@dimen/main_margin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/pick_image_btn"
+            style="@style/ButtonStyle"
+            android:layout_width="@dimen/zero"
+            android:layout_weight="1"
+            android:text="@string/load" />
+
+
+        <com.google.android.material.button.MaterialButton
+            style="@style/ButtonStyle"
+            android:id="@+id/take_photo_btn"
+            android:text="@string/take_photo"
+            android:layout_width="@dimen/zero"
+            android:layout_weight="1" />
+        
+        <com.google.android.material.button.MaterialButton
+            style="@style/ButtonStyle"
+            android:id="@+id/save_image_btn"
+            android:text="@string/save"
+            android:layout_width="@dimen/zero"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/selected_image"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_size"
+        android:layout_margin="@dimen/main_margin"
+        android:contentDescription=""
+        app:layout_constraintEnd_toEndOf="parent"
+        android:adjustViewBounds="true" />
+
+    <HorizontalScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@id/selected_image"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/ButtonStyle"
+                android:id="@+id/rotate_btn"
+                android:text="@string/rotate" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/ButtonStyle"
+                android:id="@+id/filter_btn"
+                android:text="@string/filter" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/ButtonStyle"
+                android:id="@+id/scale_btn"
+                android:text="@string/scale" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/ButtonStyle"
+                android:id="@+id/face_btn"
+                android:text="@string/face" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/ButtonStyle"
+                android:id="@+id/vector_btn"
+                android:text="@string/vector" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/ButtonStyle"
+                android:id="@+id/retouch_btn"
+                android:text="@string/retouch" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/ButtonStyle"
+                android:id="@+id/masking_btn"
+                android:text="@string/masking" />
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/ButtonStyle"
+                android:id="@+id/drawing_btn"
+                android:text="@string/drawing" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/fragment_cont"/>
+
+    <com.google.android.material.slider.RangeSlider
+        android:id="@+id/range_slider"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="630dp"
+        android:valueFrom="0"
+        android:valueTo="360"
+        android:stepSize="1"
+        app:layout_anchorGravity="center" />
+
+    <EditText
+        android:id="@+id/scaleFactorEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:hint="@string/scale_hint"
+        android:layout_marginTop="670dp"
+        android:layout_marginStart="200dp"
+        android:inputType="numberDecimal"/>
+    
+</LinearLayout>

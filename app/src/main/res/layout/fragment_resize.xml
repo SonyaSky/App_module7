@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:id="@+id/fragment_rotate">
+
+    <EditText
+        android:id="@+id/resize_text"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:hint="@string/scale_hint"
+        android:inputType="numberDecimal"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/resize_apply"
+        style="@style/ButtonStyle"
+        android:layout_centerHorizontal="true"
+        android:text="apply resize" />
+
+</LinearLayout>

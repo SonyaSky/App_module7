@@ -45,6 +45,7 @@ import java.io.IOException
 class MainActivity : AppCompatActivity(), FiltersHandler {
     private lateinit var binding: ActivityMainBinding
     private var originalBitmap: Bitmap? = null
+    private var changedBitmap: Bitmap? = null
     private val imageFilters = ImageFilters(this)
     private val masking = Masking()
     val rotateImage = RotateImage()
@@ -95,34 +96,47 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
                 commit()
             }
             binding.btnsForFilters.visibility = View.VISIBLE
-            val currentBitmap = (binding.selectedImage.drawable as? BitmapDrawable)?.bitmap
+            //val currentBitmap = (binding.selectedImage.drawable as? BitmapDrawable)?.bitmap
 
             val mat = Mat()
-            Utils.bitmapToMat(currentBitmap, mat)
+            Utils.bitmapToMat(originalBitmap, mat)
 
             val faceDetection = FaceDetection(this)
             val faces: List<Rect> = faceDetection.detectFaces(mat)
 
             for (rect in faces) {
-                Imgproc.rectangle(mat, rect.tl(), rect.br(), Scalar(255.0, 0.0, 0.0), 3)
+                Imgproc.rectangle(mat, rect.tl(), rect.br(), Scalar(255.0, 255.0, 255.0, 0.0), 3)
             }
 
             val resultBitmap = Bitmap.createBitmap(mat.cols(), mat.rows(), Bitmap.Config.ARGB_8888)
             Utils.matToBitmap(mat, resultBitmap)
-            currentBitmap?.let { currentBitmap ->
+            originalBitmap?.let {
                 binding.selectedImage.setImageBitmap(resultBitmap)
+                changedBitmap = resultBitmap
             }
             facesDetected = true
             faceFilters.setFaces(faces)
         }
 
         binding.pickImageBtn.setOnClickListener {
+            val fragment = supportFragmentManager.findFragmentById(R.id.fragment_cont)
+            if (fragment != null) {
+                supportFragmentManager.beginTransaction()
+                    .remove(fragment)
+                    .commit()
+            }
             val pickImg = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             changeImage.launch(pickImg)
             facesDetected = false
         }
 
         binding.takePhotoBtn.setOnClickListener {
+            val fragment = supportFragmentManager.findFragmentById(R.id.fragment_cont)
+            if (fragment != null) {
+                supportFragmentManager.beginTransaction()
+                    .remove(fragment)
+                    .commit()
+            }
             val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
             facesDetected = false
@@ -152,18 +166,6 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
             facesDetected = false
         }
 
-        /*binding.scaleBtn.setOnClickListener {
-            val currentBitmap = (binding.selectedImage.drawable as? BitmapDrawable)?.bitmap
-            currentBitmap?.let { bitmap ->
-                val scaleFactor = binding.scaleFactorEditText.text.toString().toFloatOrNull()
-                scaleFactor?.let {
-                    val scaledBitmap = scaleBitmap(bitmap, it)
-                    binding.selectedImage.setImageBitmap(scaledBitmap)
-                } ?: showToast("Invalid scale factor")
-            } ?: showToast("No image selected")
-            facesDetected = false
-        }*/
-
         binding.filterBtn.setOnClickListener {
             if (facesDetected) {
                 binding.selectedImage.setImageBitmap(originalBitmap)
@@ -189,16 +191,18 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
         }
 
         binding.saveImageBtn.setOnClickListener {
-            if (facesDetected) {
-                binding.selectedImage.setImageBitmap(originalBitmap)
-            }
-            facesDetected = false
+            /*
             val rotatedBitmap = (binding.selectedImage.drawable as? BitmapDrawable)?.bitmap
             rotatedBitmap?.let { bitmap ->
                 saveBitmap(bitmap)
             }
-            binding.btnsForFilters.visibility = View.VISIBLE
-            showToast("Image saved to gallery")
+
+             */
+            if (originalBitmap != null) {
+                saveBitmap(originalBitmap!!)
+                binding.btnsForFilters.visibility = View.GONE
+                showToast("Image saved to gallery")
+            }
         }
 
         binding.drawingBtn.setOnClickListener {
@@ -232,7 +236,7 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
                 .remove(supportFragmentManager.findFragmentById(R.id.fragment_cont)!!)
                 .commit()
             binding.btnsForFilters.visibility = View.GONE
-            originalBitmap = binding.selectedImage.drawToBitmap()
+            originalBitmap = changedBitmap
         }
 
     }
@@ -275,7 +279,8 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
                 binding.selectedImage.width.toFloat(),
                 binding.selectedImage.height.toFloat()
             )
-            binding.selectedImage.setImageBitmap(resultBitmap)
+            changedBitmap = resultBitmap
+            binding.selectedImage.setImageBitmap(changedBitmap)
         }
     }
 
@@ -285,47 +290,63 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
                 bitmap,
                 angle
             )
-            binding.selectedImage.setImageBitmap(resultBitmap)
+            changedBitmap = resultBitmap
+            binding.selectedImage.setImageBitmap(changedBitmap)
         }
     }
 
     override fun sendToInversionFilter() {
-        if (facesDetected) binding.selectedImage.setImageBitmap(faceFilters.inversionFilter(originalBitmap))
-        else binding.selectedImage.setImageBitmap(imageFilters.inversionFilter(originalBitmap))
+        changedBitmap =
+        if (facesDetected) faceFilters.inversionFilter(originalBitmap)
+        else imageFilters.inversionFilter(originalBitmap)
+        binding.selectedImage.setImageBitmap(changedBitmap)
     }
 
     override fun sendToGrayscaleFilter() {
-        if (facesDetected) binding.selectedImage.setImageBitmap(faceFilters.grayscaleFilter(originalBitmap))
-        else binding.selectedImage.setImageBitmap(imageFilters.grayscaleFilter(originalBitmap))
+        changedBitmap =
+            if (facesDetected) faceFilters.grayscaleFilter(originalBitmap)
+            else imageFilters.grayscaleFilter(originalBitmap)
+        binding.selectedImage.setImageBitmap(changedBitmap)
     }
 
     override fun sendToBNWFilter() {
-        if (facesDetected) binding.selectedImage.setImageBitmap(faceFilters.blackAndWhiteFilter(originalBitmap))
-        else binding.selectedImage.setImageBitmap(imageFilters.blackAndWhiteFilter(originalBitmap))
+        changedBitmap =
+            if (facesDetected) faceFilters.blackAndWhiteFilter(originalBitmap)
+            else imageFilters.blackAndWhiteFilter(originalBitmap)
+        binding.selectedImage.setImageBitmap(changedBitmap)
     }
 
     override fun sendToLightFilter(type: String) {
-        if (facesDetected) binding.selectedImage.setImageBitmap(faceFilters.lightFilter(originalBitmap, type))
-        else binding.selectedImage.setImageBitmap(imageFilters.lightFilter(originalBitmap, type))
+        changedBitmap =
+            if (facesDetected) faceFilters.lightFilter(originalBitmap, type)
+            else imageFilters.lightFilter(originalBitmap, type)
+        binding.selectedImage.setImageBitmap(changedBitmap)
     }
 
     override fun sendToSepiaFilter() {
-        if (facesDetected) binding.selectedImage.setImageBitmap(faceFilters.sepiaFilter(originalBitmap))
-        else binding.selectedImage.setImageBitmap(imageFilters.sepiaFilter(originalBitmap))
+        changedBitmap =
+            if (facesDetected) faceFilters.sepiaFilter(originalBitmap)
+            else imageFilters.sepiaFilter(originalBitmap)
+        binding.selectedImage.setImageBitmap(changedBitmap)
     }
 
     override fun sendToTintFilter(color: String) {
-        if (facesDetected) binding.selectedImage.setImageBitmap(faceFilters.tintFilter(originalBitmap, color))
-        else binding.selectedImage.setImageBitmap(imageFilters.tintFilter(originalBitmap, color))
+        changedBitmap =
+            if (facesDetected) faceFilters.tintFilter(originalBitmap, color)
+            else imageFilters.tintFilter(originalBitmap, color)
+        binding.selectedImage.setImageBitmap(changedBitmap)
     }
 
     override fun sendToColorFilter(color: String) {
-        if (facesDetected) binding.selectedImage.setImageBitmap(faceFilters.colorFilter(originalBitmap, color))
-        else binding.selectedImage.setImageBitmap(imageFilters.colorFilter(originalBitmap, color))
+        changedBitmap =
+            if (facesDetected) faceFilters.colorFilter(originalBitmap, color)
+            else imageFilters.colorFilter(originalBitmap, color)
+        binding.selectedImage.setImageBitmap(changedBitmap)
     }
 
     override fun sendToMasking(radius: Int, effect: Double, threshold: Int) {
-        binding.selectedImage.setImageBitmap(masking.createMask(originalBitmap, radius, effect, threshold))
+        changedBitmap = masking.createMask(originalBitmap, radius, effect, threshold)
+        binding.selectedImage.setImageBitmap(changedBitmap)
     }
 
     override fun takePhotosForButtons(): List<Bitmap?>? {

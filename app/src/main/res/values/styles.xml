@@ -11,4 +11,18 @@
         <item name="backgroundTint">#457EBC</item>
     </style>
 
+    <style name="RangeSlider" parent="Widget.MaterialComponents.Slider">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:stepSize">1</item>
+    </style>
+
+    <style name="TextViewStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textColor">@color/textview_text</item>
+        <item name="android:textSize">26sp</item>
+    </style>
+
 </resources>

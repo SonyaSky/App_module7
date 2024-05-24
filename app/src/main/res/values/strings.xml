@@ -15,6 +15,10 @@
     <string name="retouch">Retouching</string>
     <string name="masking">Unsharp masking</string>
 
+    <string name="effect_masking">Effect</string>
+    <string name="radius_masking">Radius</string>
+    <string name="threshold_masking">Threshold</string>
+
     <string name="image">Image</string>
     <string name="backButton">Show original image</string>
     <string name="inversionButton">Inversion</string>

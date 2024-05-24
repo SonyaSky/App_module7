@@ -2,17 +2,17 @@ package com.example.module7.fragment
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
+
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.module7.FiltersHandler
-import com.example.module7.databinding.FragmentRotateBinding
+import com.example.module7.databinding.FragmentResizeBinding
 
 
-class RotateFragment : Fragment() {
-    private lateinit var binding: FragmentRotateBinding
+class ResizeFragment : Fragment() {
+    private lateinit var binding: FragmentResizeBinding
     private var listener: FiltersHandler? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,14 +31,10 @@ class RotateFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentRotateBinding.inflate(inflater, container, false)
+        binding = FragmentResizeBinding.inflate(inflater, container, false)
 
-
-        binding.rotateImage.setOnClickListener {
-            listener?.sendToRotateImage(90f)
-        }
-        binding.rangeSlider.addOnChangeListener { slider, value, fromUser ->
-            listener?.sendToRotateImage(value)
+        binding.resizeApply.setOnClickListener {
+            listener?.sendToResizeImage(binding.resizeText.text.toString().toFloat())
         }
         return binding.root
     }

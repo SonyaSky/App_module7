@@ -17,10 +17,12 @@ import com.example.module7.components.FaceDetection
 import com.example.module7.components.FaceFilters
 import com.example.module7.components.ImageFilters
 import com.example.module7.components.Masking
+import com.example.module7.components.ResizeImage
 import com.example.module7.components.RotateImage
 import com.example.module7.databinding.ActivityMainBinding
 import com.example.module7.fragment.FilterFragment
 import com.example.module7.fragment.MaskingFragment
+import com.example.module7.fragment.ResizeFragment
 import com.example.module7.fragment.RotateFragment
 import org.opencv.android.OpenCVLoader
 import org.opencv.android.Utils
@@ -37,6 +39,7 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
     private val imageFilters = ImageFilters(this)
     private val masking = Masking()
     val rotateImage = RotateImage()
+    val resizeImage = ResizeImage()
     var facesDetected = false
     val faceFilters = FaceFilters()
     private val changeImage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
@@ -113,6 +116,14 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
         }
 
         binding.scaleBtn.setOnClickListener {
+            supportFragmentManager.beginTransaction().apply {
+                replace(R.id.fragment_cont, ResizeFragment())
+                commit()
+            }
+            facesDetected = false
+        }
+
+        /*binding.scaleBtn.setOnClickListener {
             val currentBitmap = (binding.selectedImage.drawable as? BitmapDrawable)?.bitmap
             currentBitmap?.let { bitmap ->
                 val scaleFactor = binding.scaleFactorEditText.text.toString().toFloatOrNull()
@@ -122,7 +133,7 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
                 } ?: showToast("Invalid scale factor")
             } ?: showToast("No image selected")
             facesDetected = false
-        }
+        }*/
 
         binding.filterBtn.setOnClickListener {
             facesDetected = false
@@ -169,12 +180,6 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
         }
     }
 
-    private fun scaleBitmap(bitmap: Bitmap, scaleFactor: Float): Bitmap {
-        val width = (bitmap.width * scaleFactor).toInt()
-        val height = (bitmap.height * scaleFactor).toInt()
-        return Bitmap.createScaledBitmap(bitmap, width, height, true)
-    }
-
     private fun saveBitmap(bitmap: Bitmap) {
         val imageUri = contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, ContentValues()) ?: return
         contentResolver.openOutputStream(imageUri)?.use { outputStream ->
@@ -193,6 +198,16 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
                 angle,
                 binding.selectedImage.width.toFloat(),
                 binding.selectedImage.height.toFloat()
+            )
+            binding.selectedImage.setImageBitmap(resultBitmap)
+        }
+    }
+
+    override fun sendToResizeImage(angle: Float) {
+        originalBitmap?.let { bitmap ->
+            val resultBitmap = resizeImage.resize(
+                bitmap,
+                angle
             )
             binding.selectedImage.setImageBitmap(resultBitmap)
         }

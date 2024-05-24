@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 provider#androidx.core.content.FileProvider
-INJECTED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:41:9-49:20
+INJECTED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:45:9-53:20
 	android:grantUriPermissions
-		ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:45:13-47
+		ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:49:13-47
 	android:authorities
 		INJECTED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml
-		ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:43:13-64
+		ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:47:13-64
 	android:exported
-		ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:44:13-37
+		ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:48:13-37
 	android:name
-		ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:42:13-62
+		ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:46:13-62
 manifest
-ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:2:1-52:12
-INJECTED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:2:1-52:12
+ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:2:1-56:12
+INJECTED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:2:1-56:12
 MERGED from [androidx.databinding:viewbinding:8.3.0] C:\Users\пк\.gradle\caches\transforms-3\d0cc2ba07cc1a51ca5e66f2701b86679\transformed\viewbinding-8.3.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\пк\.gradle\caches\transforms-3\ee0063f0d4c8967c634e750c7bcb2e46\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\пк\.gradle\caches\transforms-3\ddf324b6a45754fc446fc6eab33ec636\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
@@ -87,8 +87,8 @@ ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:13:5-90
 	android:name
 		ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:13:22-87
 application
-ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:18:5-50:19
-INJECTED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:18:5-50:19
+ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:18:5-54:19
+INJECTED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:18:5-54:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\пк\.gradle\caches\transforms-3\ee0063f0d4c8967c634e750c7bcb2e46\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\пк\.gradle\caches\transforms-3\ee0063f0d4c8967c634e750c7bcb2e46\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\пк\.gradle\caches\transforms-3\ddf324b6a45754fc446fc6eab33ec636\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -149,12 +149,18 @@ ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:37:9-40:20
 		ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:39:13-36
 	android:name
 		ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:38:13-53
-meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:46:13-48:54
-	android:resource
-		ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:48:17-51
+activity#com.example.module7.activity.RetouchingActivity
+ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:41:9-44:20
+	android:exported
+		ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:43:13-36
 	android:name
-		ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:47:17-67
+		ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:42:13-56
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:50:13-52:54
+	android:resource
+		ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:52:17-51
+	android:name
+		ADDED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml:51:17-67
 uses-sdk
 INJECTED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\GitHub\App_module7\app\src\main\AndroidManifest.xml

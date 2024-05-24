@@ -54,6 +54,10 @@
             android:name="com.example.module7.activity.DrawingActivity"
             android:exported="true" >
         </activity>
+        <activity
+            android:name="com.example.module7.activity.RetouchingActivity"
+            android:exported="true" >
+        </activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"

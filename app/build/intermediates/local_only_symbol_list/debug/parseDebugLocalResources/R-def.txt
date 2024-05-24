@@ -87,6 +87,7 @@ id white
 id yellow
 layout activity_drawing
 layout activity_main
+layout activity_retouching
 layout colors_bar
 layout fragment_filters
 layout fragment_masking

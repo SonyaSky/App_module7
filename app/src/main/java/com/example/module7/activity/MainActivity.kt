@@ -223,6 +223,24 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
             facesDetected = false
         }
 
+        binding.retouchBtn.setOnClickListener {
+            if (facesDetected) {
+                binding.selectedImage.setImageBitmap(originalBitmap)
+            }
+            if (originalBitmap != null) {
+                val uri: Uri? = saveBitmapAndGetUri(originalBitmap!!)
+                uri?.let {
+                    val intent = Intent(this, RetouchingActivity::class.java)
+                    intent.putExtra("image_uri", it.toString())
+                    startActivity(intent)
+                }
+            }
+            else {
+                showToast("Load the image")
+            }
+            facesDetected = false
+        }
+
         binding.backBtn.setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .remove(supportFragmentManager.findFragmentById(R.id.fragment_cont)!!)

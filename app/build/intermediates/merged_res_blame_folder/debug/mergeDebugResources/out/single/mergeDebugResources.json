@@ -140,6 +140,10 @@
         "source": "C:\\Users\\пк\\.gradle\\daemon\\8.4\\com.example.module7.app-main-34:\\drawable\\ic_launcher_background.xml"
     },
     {
+        "merged": "com.example.module7.app-debug-32:/layout_activity_drawing.xml.flat",
+        "source": "com.example.module7.app-main-34:/layout/activity_drawing.xml"
+    },
+    {
         "merged": "C:\\Users\\пк\\.gradle\\daemon\\8.4\\com.example.module7.app-debug-32:\\mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\пк\\.gradle\\daemon\\8.4\\com.example.module7.app-main-34:\\mipmap-mdpi\\ic_launcher_round.webp"
     },

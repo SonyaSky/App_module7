@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
     val resizeImage = ResizeImage()
     var facesDetected = false
     val faceFilters = FaceFilters()
+    var copyBitmap = originalBitmap
     private lateinit var uri : Uri
     private val changeImage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
@@ -83,6 +84,7 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
 
             uri = Uri.parse(it)
             originalBitmap = getBitmapFromUri(uri)
+            copyBitmap = originalBitmap
             binding.selectedImage.setImageBitmap(originalBitmap)
         }
 
@@ -90,32 +92,36 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
         OpenCVLoader.initDebug()
 
         binding.faceBtn.setOnClickListener {
+            if (originalBitmap != null) {
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragment_cont, FilterFragment())
+                    commit()
+                }
+                binding.btnsForFilters.visibility = View.VISIBLE
+                //val currentBitmap = (binding.selectedImage.drawable as? BitmapDrawable)?.bitmap
 
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment_cont, FilterFragment())
-                commit()
+                val mat = Mat()
+                Utils.bitmapToMat(originalBitmap, mat)
+
+                val faceDetection = FaceDetection(this)
+                val faces: List<Rect> = faceDetection.detectFaces(mat)
+
+                for (rect in faces) {
+                    Imgproc.rectangle(mat, rect.tl(), rect.br(), Scalar(255.0, 255.0, 255.0, 0.0), 3)
+                }
+
+                val resultBitmap = Bitmap.createBitmap(mat.cols(), mat.rows(), Bitmap.Config.ARGB_8888)
+                Utils.matToBitmap(mat, resultBitmap)
+                originalBitmap?.let {
+                    binding.selectedImage.setImageBitmap(resultBitmap)
+                    changedBitmap = resultBitmap
+                }
+                facesDetected = true
+                faceFilters.setFaces(faces)
             }
-            binding.btnsForFilters.visibility = View.VISIBLE
-            //val currentBitmap = (binding.selectedImage.drawable as? BitmapDrawable)?.bitmap
-
-            val mat = Mat()
-            Utils.bitmapToMat(originalBitmap, mat)
-
-            val faceDetection = FaceDetection(this)
-            val faces: List<Rect> = faceDetection.detectFaces(mat)
-
-            for (rect in faces) {
-                Imgproc.rectangle(mat, rect.tl(), rect.br(), Scalar(255.0, 255.0, 255.0, 0.0), 3)
+            else {
+                showToast("Load the image")
             }
-
-            val resultBitmap = Bitmap.createBitmap(mat.cols(), mat.rows(), Bitmap.Config.ARGB_8888)
-            Utils.matToBitmap(mat, resultBitmap)
-            originalBitmap?.let {
-                binding.selectedImage.setImageBitmap(resultBitmap)
-                changedBitmap = resultBitmap
-            }
-            facesDetected = true
-            faceFilters.setFaces(faces)
         }
 
         binding.pickImageBtn.setOnClickListener {
@@ -143,65 +149,81 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
         }
 
         binding.rotateBtn.setOnClickListener {
-            if (facesDetected) {
-                binding.selectedImage.setImageBitmap(originalBitmap)
+            if (originalBitmap != null) {
+                if (facesDetected) {
+                    binding.selectedImage.setImageBitmap(originalBitmap)
+                }
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragment_cont, RotateFragment())
+                    commit()
+                }
+                binding.btnsForFilters.visibility = View.VISIBLE
+                facesDetected = false
             }
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment_cont, RotateFragment())
-                commit()
+            else {
+                showToast("Load the image")
             }
-            binding.btnsForFilters.visibility = View.VISIBLE
-            facesDetected = false
         }
 
         binding.scaleBtn.setOnClickListener {
-            if (facesDetected) {
-                binding.selectedImage.setImageBitmap(originalBitmap)
+            if (originalBitmap != null) {
+                if (facesDetected) {
+                    binding.selectedImage.setImageBitmap(originalBitmap)
+                }
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragment_cont, ResizeFragment())
+                    commit()
+                }
+                binding.btnsForFilters.visibility = View.VISIBLE
+                facesDetected = false
             }
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment_cont, ResizeFragment())
-                commit()
+            else {
+                showToast("Load the image")
             }
-            binding.btnsForFilters.visibility = View.VISIBLE
-            facesDetected = false
         }
 
         binding.filterBtn.setOnClickListener {
-            if (facesDetected) {
-                binding.selectedImage.setImageBitmap(originalBitmap)
+            if (originalBitmap != null) {
+                if (facesDetected) {
+                    binding.selectedImage.setImageBitmap(originalBitmap)
+                }
+                facesDetected = false
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragment_cont, FilterFragment())
+                    commit()
+                }
+                binding.btnsForFilters.visibility = View.VISIBLE
             }
-            facesDetected = false
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment_cont, FilterFragment())
-                commit()
+            else {
+                showToast("Load the image")
             }
-            binding.btnsForFilters.visibility = View.VISIBLE
         }
 
         binding.maskingBtn.setOnClickListener {
-            if (facesDetected) {
-                binding.selectedImage.setImageBitmap(originalBitmap)
+            if (originalBitmap != null) {
+                if (facesDetected) {
+                    binding.selectedImage.setImageBitmap(originalBitmap)
+                }
+                facesDetected = false
+                supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.fragment_cont, MaskingFragment())
+                    commit()
+                }
+                binding.btnsForFilters.visibility = View.VISIBLE
             }
-            facesDetected = false
-            supportFragmentManager.beginTransaction().apply {
-                replace(R.id.fragment_cont, MaskingFragment())
-                commit()
+            else {
+                showToast("Load the image")
             }
-            binding.btnsForFilters.visibility = View.VISIBLE
         }
 
         binding.saveImageBtn.setOnClickListener {
-            /*
-            val rotatedBitmap = (binding.selectedImage.drawable as? BitmapDrawable)?.bitmap
-            rotatedBitmap?.let { bitmap ->
-                saveBitmap(bitmap)
-            }
-
-             */
             if (originalBitmap != null) {
                 saveBitmap(originalBitmap!!)
                 binding.btnsForFilters.visibility = View.GONE
                 showToast("Image saved to gallery")
+            }
+            else {
+                showToast("Load the image")
             }
         }
 
@@ -297,6 +319,14 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
                 binding.selectedImage.width.toFloat(),
                 binding.selectedImage.height.toFloat()
             )
+            changedBitmap = resultBitmap
+            binding.selectedImage.setImageBitmap(changedBitmap)
+        }
+    }
+
+    override fun sendToRotate90Degrees() {
+        copyBitmap?.let { bitmap ->
+            val resultBitmap = rotateImage.rotate90Degrees(bitmap)
             changedBitmap = resultBitmap
             binding.selectedImage.setImageBitmap(changedBitmap)
         }

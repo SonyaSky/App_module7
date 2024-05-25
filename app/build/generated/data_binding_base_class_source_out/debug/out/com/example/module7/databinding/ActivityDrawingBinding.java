@@ -4,7 +4,6 @@ package com.example.module7.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -40,7 +39,7 @@ public final class ActivityDrawingBinding implements ViewBinding {
   public final RangeSlider brushTransparent;
 
   @NonNull
-  public final Button clearButton;
+  public final MaterialButton clearButton;
 
   @NonNull
   public final ColorsBarBinding colorsBar;
@@ -55,14 +54,14 @@ public final class ActivityDrawingBinding implements ViewBinding {
   public final TextView text1;
 
   @NonNull
-  public final TextView textView2;
+  public final TextView text2;
 
   private ActivityDrawingBinding(@NonNull LinearLayout rootView,
       @NonNull LinearLayout ConstraintLayout, @NonNull MaterialButton approveBtn,
       @NonNull MaterialButton backBtn, @NonNull RangeSlider brushSize,
-      @NonNull RangeSlider brushTransparent, @NonNull Button clearButton,
+      @NonNull RangeSlider brushTransparent, @NonNull MaterialButton clearButton,
       @NonNull ColorsBarBinding colorsBar, @NonNull DrawingView drawingView,
-      @NonNull AppCompatImageView imageView, @NonNull TextView text1, @NonNull TextView textView2) {
+      @NonNull AppCompatImageView imageView, @NonNull TextView text1, @NonNull TextView text2) {
     this.rootView = rootView;
     this.ConstraintLayout = ConstraintLayout;
     this.approveBtn = approveBtn;
@@ -74,7 +73,7 @@ public final class ActivityDrawingBinding implements ViewBinding {
     this.drawingView = drawingView;
     this.imageView = imageView;
     this.text1 = text1;
-    this.textView2 = textView2;
+    this.text2 = text2;
   }
 
   @Override
@@ -118,7 +117,7 @@ public final class ActivityDrawingBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.brushSize;
+      id = R.id.brush_size;
       RangeSlider brushSize = ViewBindings.findChildViewById(rootView, id);
       if (brushSize == null) {
         break missingId;
@@ -131,7 +130,7 @@ public final class ActivityDrawingBinding implements ViewBinding {
       }
 
       id = R.id.clearButton;
-      Button clearButton = ViewBindings.findChildViewById(rootView, id);
+      MaterialButton clearButton = ViewBindings.findChildViewById(rootView, id);
       if (clearButton == null) {
         break missingId;
       }
@@ -161,15 +160,15 @@ public final class ActivityDrawingBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.textView2;
-      TextView textView2 = ViewBindings.findChildViewById(rootView, id);
-      if (textView2 == null) {
+      id = R.id.text2;
+      TextView text2 = ViewBindings.findChildViewById(rootView, id);
+      if (text2 == null) {
         break missingId;
       }
 
       return new ActivityDrawingBinding((LinearLayout) rootView, ConstraintLayout, approveBtn,
           backBtn, brushSize, brushTransparent, clearButton, binding_colorsBar, drawingView,
-          imageView, text1, textView2);
+          imageView, text1, text2);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

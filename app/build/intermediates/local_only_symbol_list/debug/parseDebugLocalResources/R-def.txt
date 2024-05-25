@@ -35,9 +35,8 @@ id back_btn
 id black
 id blue
 id bnw
-id brushRatioSeekBar
 id brushSize
-id brushSizeSeekBar
+id brush_size
 id brush_transparent
 id btns_for_filters
 id clearButton
@@ -80,7 +79,6 @@ id take_photo_btn
 id text1
 id text2
 id text3
-id textView2
 id threshold_seek_bar
 id vector_btn
 id white
@@ -103,7 +101,9 @@ string app_name
 string applyMasking
 string backButton
 string blueButton
+string brush_size
 string clearButton
+string coefficient
 string darkButton
 string drawing
 string effect_masking
@@ -131,6 +131,7 @@ string scale_hint
 string sepiaButton
 string take_photo
 string threshold_masking
+string transparent_ratio
 string vector
 string yellowButton
 style Base.Theme.Module7

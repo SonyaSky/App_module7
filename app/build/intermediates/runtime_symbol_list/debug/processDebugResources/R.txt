@@ -3210,9 +3210,8 @@ int id bounce 0x7f080066
 int id bounceBoth 0x7f080067
 int id bounceEnd 0x7f080068
 int id bounceStart 0x7f080069
-int id brushRatioSeekBar 0x7f08006a
 int id brushSize 0x7f08006b
-int id brushSizeSeekBar 0x7f08006c
+int id brush_size 0x7f08022b
 int id brush_transparent 0x7f08006d
 int id btns_for_filters 0x7f08006e
 int id buttonPanel 0x7f08006f
@@ -3605,7 +3604,6 @@ int id textSpacerNoButtons 0x7f0801f1
 int id textSpacerNoTitle 0x7f0801f2
 int id textStart 0x7f0801f3
 int id textTop 0x7f0801f4
-int id textView2 0x7f0801f5
 int id text_input_end_icon 0x7f0801f6
 int id text_input_error_icon 0x7f0801f7
 int id text_input_start_icon 0x7f0801f8
@@ -3905,6 +3903,7 @@ int string bottomsheet_action_expand 0x7f100024
 int string bottomsheet_action_expand_halfway 0x7f100025
 int string bottomsheet_drag_handle_clicked 0x7f100026
 int string bottomsheet_drag_handle_content_description 0x7f100027
+int string brush_size 0x7f1000c9
 int string call_notification_answer_action 0x7f100028
 int string call_notification_answer_video_action 0x7f100029
 int string call_notification_decline_action 0x7f10002a
@@ -3917,6 +3916,7 @@ int string character_counter_overflowed_content_description 0x7f100030
 int string character_counter_pattern 0x7f100031
 int string clearButton 0x7f100032
 int string clear_text_end_icon_content_description 0x7f100033
+int string coefficient 0x7f1000ca
 int string darkButton 0x7f100034
 int string drawing 0x7f100035
 int string effect_masking 0x7f100036
@@ -4064,6 +4064,7 @@ int string side_sheet_behavior 0x7f1000c3
 int string status_bar_notification_info_overflow 0x7f1000c4
 int string take_photo 0x7f1000c5
 int string threshold_masking 0x7f1000c6
+int string transparent_ratio 0x7f1000cb
 int string vector 0x7f1000c7
 int string yellowButton 0x7f1000c8
 int style AlertDialog_AppCompat 0x7f110000

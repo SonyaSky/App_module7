@@ -24,7 +24,9 @@
     <string name="applyMasking">Apply masking</string>
     <string name="backButton">Show original image</string>
     <string name="blueButton">Blue</string>
+    <string name="brush_size">Brush size</string>
     <string name="clearButton">Clear</string>
+    <string name="coefficient">Coefficient</string>
     <string name="darkButton">Dark</string>
     <string name="drawing">Drawing</string>
     <string name="effect_masking">Effect</string>
@@ -52,6 +54,7 @@
     <string name="sepiaButton">Sepia</string>
     <string name="take_photo">Take photo</string>
     <string name="threshold_masking">Threshold</string>
+    <string name="transparent_ratio">Transparency</string>
     <string name="vector">Vector editor</string>
     <string name="yellowButton">Yellow</string>
     <style name="Base.Theme.Module7" parent="Theme.Material3.DayNight.NoActionBar">

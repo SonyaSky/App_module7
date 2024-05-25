@@ -35,7 +35,7 @@ class RotateFragment : Fragment() {
 
 
         binding.rotateImage.setOnClickListener {
-            listener?.sendToRotateImage(90f)
+            listener?.sendToRotate90Degrees()
         }
         binding.rangeSlider.addOnChangeListener { slider, value, fromUser ->
             listener?.sendToRotateImage(value)

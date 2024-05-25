@@ -54,15 +54,21 @@ class RetouchView(context: Context, attrs: AttributeSet) : View(context, attrs) 
         val touchX = event.x
         val touchY = event.y
 
+        val rect = Rect()
+        getDrawingRect(rect)
+
+        val scaledTouchX = (((touchX / width * canvasBitmap?.width!!) ?: 0)).toFloat()
+        val scaledTouchY = (((touchY / height * canvasBitmap?.height!!) ?: 0)).toFloat()
+
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
-                path.moveTo(touchX, touchY)
-                applyMeanFilter(touchX.toInt(), touchY.toInt())
+                path.moveTo(scaledTouchX, scaledTouchY)
+                applyMeanFilter(scaledTouchX.toInt(), scaledTouchY.toInt())
                 return true
             }
             MotionEvent.ACTION_MOVE -> {
-                path.lineTo(touchX, touchY)
-                applyMeanFilter(touchX.toInt(), touchY.toInt())
+                path.lineTo(scaledTouchX, scaledTouchY)
+                applyMeanFilter(scaledTouchX.toInt(), scaledTouchY.toInt())
             }
             MotionEvent.ACTION_UP -> {
                 path.reset()

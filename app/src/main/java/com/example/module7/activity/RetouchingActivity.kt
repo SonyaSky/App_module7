@@ -1,5 +1,6 @@
 package com.example.module7.activity
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
@@ -9,6 +10,7 @@ import android.os.Environment
 import android.widget.SeekBar
 import androidx.activity.ComponentActivity
 import androidx.core.content.FileProvider
+import androidx.core.view.drawToBitmap
 import com.example.module7.databinding.ActivityRetouchingBinding
 import java.io.File
 import java.io.FileNotFoundException
@@ -32,50 +34,57 @@ class RetouchingActivity : ComponentActivity() {
             binding.imageView.setImageBitmap(bitmap)
         }
 
+        var brushSize = 10f
+        var transparent = 1.0f
 
-        // Default values for brush size and retouch ratio
-        val defaultBrushSize = 10f
-        val defaultRetouchRatio = 1.0f
-
-        binding.drawingView.setBrushSize(defaultBrushSize)
-        binding.drawingView.setRetouchRatio(defaultRetouchRatio)
+        binding.drawingView.setBrushSize(brushSize)
+        binding.drawingView.setRetouchRatio(transparent)
 
         binding.clearButton.setOnClickListener {
             binding.drawingView.clearCanvas()
+            binding.drawingView.setImageBitmap(bitmap!!)
         }
 
         binding.imageView.post {
-            val bitmap = (binding.imageView.drawable as BitmapDrawable).bitmap
-            binding.drawingView.setImageBitmap(bitmap)
+            binding.drawingView.setImageBitmap(bitmap!!)
         }
 
         // Set up brush size seek bar
-        binding.brushSizeSeekBar.max = 100
-        binding.brushSizeSeekBar.progress = defaultBrushSize.toInt()
-        binding.brushSizeSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                val newSize = progress.toFloat()
-                binding.drawingView.setBrushSize(newSize)
+        binding.drawingView.setBrushSize(brushSize)
+        binding.drawingView.setRetouchRatio(transparent)
+
+        binding.brushSize.valueTo = 100f
+        binding.brushSize.values = listOf(brushSize)
+        binding.brushSize.addOnChangeListener { slider, value, fromUser ->
+            brushSize = value
+            binding.drawingView.setBrushSize(brushSize)
+        }
+
+        binding.brushTransparent.valueTo = 100f
+        binding.brushTransparent.values = listOf((transparent * 100))
+        binding.brushTransparent.addOnChangeListener { slider, value, fromUser ->
+            transparent = value / 100f
+            binding.drawingView.setRetouchRatio(transparent)
+        }
+        binding.backBtn.setOnClickListener {
+            uri?.let {
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("image_uri", it.toString())
+                startActivity(intent)
             }
+        }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
-        })
-
-        // Set up retouch ratio seek bar
-        binding.brushRatioSeekBar.max = 100
-        binding.brushRatioSeekBar.progress = (defaultRetouchRatio * 100).toInt()
-        binding.brushRatioSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                val newRatio = progress / 100f
-                binding.drawingView.setRetouchRatio(newRatio)
+        binding.approveBtn.setOnClickListener {
+            if (bitmap != null) {
+                val uri: Uri? = saveBitmapAndGetUri(binding.drawingView.drawToBitmap())
+                uri?.let {
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("image_uri", it.toString())
+                    startActivity(intent)
+                }
             }
+        }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
-        })
     }
     private fun getBitmapFromUri(uri: Uri): Bitmap? {
         return try {

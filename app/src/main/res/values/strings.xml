@@ -20,6 +20,10 @@
     <string name="radius_masking">Radius</string>
     <string name="threshold_masking">Threshold</string>
 
+    <string name="brush_size">Brush size</string>
+    <string name="transparent_ratio">Transparency</string>
+    <string name="coefficient">Coefficient</string>
+
     <string name="image">Image</string>
     <string name="backButton">Show original image</string>
     <string name="inversionButton">Inversion</string>

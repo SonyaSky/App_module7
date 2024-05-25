@@ -14,6 +14,7 @@ import com.example.module7.databinding.FragmentRotateBinding
 class RotateFragment : Fragment() {
     private lateinit var binding: FragmentRotateBinding
     private var listener: FiltersHandler? = null
+    private var rotate90Angle : Float = 0f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +36,9 @@ class RotateFragment : Fragment() {
 
 
         binding.rotateImage.setOnClickListener {
-            listener?.sendToRotate90Degrees()
+            rotate90Angle = (rotate90Angle + 90f) % 360
+            listener?.sendToRotateImage(rotate90Angle)
+            binding.rangeSlider.values = listOf(rotate90Angle)
         }
         binding.rangeSlider.addOnChangeListener { slider, value, fromUser ->
             listener?.sendToRotateImage(value)

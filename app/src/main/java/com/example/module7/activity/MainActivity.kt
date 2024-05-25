@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
     val faceFilters = FaceFilters()
     var copyBitmap = originalBitmap
     private lateinit var uri : Uri
+
     private val changeImage = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             val data = result.data
@@ -324,6 +325,7 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
         }
     }
 
+    /*
     override fun sendToRotate90Degrees() {
         copyBitmap?.let { bitmap ->
             val resultBitmap = rotateImage.rotate90Degrees(bitmap)
@@ -331,6 +333,8 @@ class MainActivity : AppCompatActivity(), FiltersHandler {
             binding.selectedImage.setImageBitmap(changedBitmap)
         }
     }
+
+     */
 
     override fun sendToResizeImage(angle: Float) {
         originalBitmap?.let { bitmap ->

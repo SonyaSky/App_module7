@@ -20,7 +20,7 @@
     <dimen name="mini_margin">8dp</dimen>
     <dimen name="zero">0dp</dimen>
     <string name="BlackAndWhiteButton">Black and White</string>
-    <string name="app_name">Gemstone</string>
+    <string name="app_name">Gemstone editor</string>
     <string name="applyMasking">Apply masking</string>
     <string name="backButton">Show original image</string>
     <string name="blueButton">Blue</string>

@@ -1,4 +1,4 @@
-#Sat May 25 05:55:19 MSK 2024
+#Sat May 25 06:14:26 MSK 2024
 base.0=D\:\\GitHub\\App_module7\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=D\:\\GitHub\\App_module7\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=D\:\\GitHub\\App_module7\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\13\\classes.dex

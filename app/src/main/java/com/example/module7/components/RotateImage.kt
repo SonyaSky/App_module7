@@ -34,22 +34,17 @@ class RotateImage {
 
         matrix.postScale(k, k)
 
-        // Применяем поворот и масштабирование
         val rotatedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
 
-        // Создаем новое изображение, в которое поместим повернутый bitmap
         val filledBitmap = Bitmap.createBitmap(width.toInt(), height.toInt(), Bitmap.Config.ARGB_8888)
         val canvas = Canvas(filledBitmap)
 
-        // Рассчитываем смещение для центрирования
         val offsetX = (width - rotatedBitmap.width) / 2
         val offsetY = (height - rotatedBitmap.height) / 2
 
-        // Находим центр изначального изображения
         val centerX = width / 2
         val centerY = height / 2
 
-        // Рисуем повернутое изображение с учетом смещения
         canvas.drawBitmap(rotatedBitmap, offsetX, offsetY, null)
 
         return filledBitmap

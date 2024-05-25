@@ -6,8 +6,6 @@ interface FiltersHandler {
 
     fun sendToRotateImage(angle: Float)
 
-    fun sendToRotate90Degrees()
-
     fun sendToResizeImage(angle: Float)
 
     fun sendToInversionFilter()
